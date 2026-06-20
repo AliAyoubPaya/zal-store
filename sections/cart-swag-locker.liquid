@@ -1,0 +1,51 @@
+{% assign total_retail = 0 %}
+{% assign total_team_discount = 0 %}
+
+<h1>Your Team Swag Locker Cart</h1>
+
+<form action="/cart?view=swag-locker" method="post" novalidate>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Retail Price</th>
+        <th>Team Price (20%)</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart.items %}
+        {% assign retail_price = item.original_price %}
+        {% assign discount_price = retail_price | times: 0.8 %}
+        {% assign line_total = discount_price | times: item.quantity %}
+
+        {% assign total_retail = total_retail | plus: retail_price | times: item.quantity %}
+        {% assign total_team_discount = total_team_discount | plus: retail_price | times: 0.2 | times: item.quantity %}
+
+        <tr>
+          <td>{{ item.product.title }}</td>
+          <td><input type="number" name="updates[]" value="{{ item.quantity }}" /></td>
+          <td>{{ retail_price | money }}</td>
+          <td>{{ discount_price | money }}</td>
+          <td>{{ line_total | money }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p><strong>Total Retail Value:</strong> {{ total_retail | money }}</p>
+  <p><strong>Cumulative 20% Donation:</strong> {{ total_team_discount | money }}</p>
+
+  <hr>
+
+  <label for="donation">Optional Donation</label><br>
+  <input type="number" step="0.01" name="attributes[Donation]" placeholder="Enter amount (e.g. 5.00)" />
+
+  <hr>
+
+  <button type="submit" name="update">Update Cart</button>
+  <button type="submit" name="checkout">Checkout</button>
+</form>

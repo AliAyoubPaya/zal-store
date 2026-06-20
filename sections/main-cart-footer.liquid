@@ -1,0 +1,493 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
+  id="main-cart-footer"
+  data-id="{{ section.id }}"
+>
+  <div class="page-width">
+    <div class="cart__footer isolate section-{{ section.id }}-padding">
+      {%- if settings.show_cart_note -%}
+        <cart-note class="cart__note field">
+          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <textarea
+            class="text-area field__input"
+            name="note"
+            form="cart"
+            id="Cart-note"
+            placeholder="{{ 'sections.cart.note' | t }}"
+          >{{ cart.note }}</textarea>
+        </cart-note>
+      {%- endif -%}
+
+
+      <div class="cart__blocks">
+        {%- assign has_other_products = false -%}
+
+                {%- for item in cart.items -%}
+                  {%- unless item.product.tags contains 'Marble Falls Mustangs' 
+                        or item.product.tags contains 'Donation Marble False' -%}
+                    {%- assign has_other_products = true -%}
+                    {%- break -%}
+                  {%- endunless -%}
+                {%- endfor -%}
+
+                {%- if has_other_products -%}
+                  <div class="decorate-question" style="margin: 1.5rem 0;">
+                    <p><strong>Want to be decorated?</strong></p>
+
+                    <label style="margin-right:1rem;">
+                      <input type="radio" name="decorate_choice" value="Yes">
+                      Yes
+                    </label>
+
+                    <label>
+                      <input type="radio" name="decorate_choice" value="No">
+                      No
+                    </label>
+
+                    <p id="decorate-error" style="display:none;color:red;margin-top:.5rem;">
+                      Please select Yes or No before proceeding to checkout.
+                    </p>
+                  </div>
+                  <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const checkoutBtn = document.getElementById('checkout');
+                      const radios = document.querySelectorAll('input[name="decorate_choice"]');
+                      const error = document.getElementById('decorate-error');
+
+                      function isSelected() {
+                        return Array.from(radios).some(r => r.checked);
+                      }
+
+                      // Save selection to cart attribute
+                      radios.forEach(radio => {
+                        radio.addEventListener('change', async function () {
+                          error.style.display = 'none';
+
+                          await fetch('/cart/update.js', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                              note: `Want to be decorated?: ${this.value}`
+                            })
+                          });
+                        });
+                      });
+
+                      // Block checkout if not selected
+                      if (checkoutBtn) {
+                        checkoutBtn.addEventListener('click', function (e) {
+                          if (!isSelected()) {
+                            e.preventDefault();
+                            error.style.display = 'block';
+                            error.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                          }
+                        });
+                      }
+                    });
+                  </script>
+                {%- endif -%}
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'subtotal' -%}
+              <div class="js-contents" {{ block.shopify_attributes }}>
+                <div>
+                  {%- if cart.cart_level_discount_applications.size > 0 -%}
+                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      {%- for discount in cart.cart_level_discount_applications -%}
+                        <li class="discounts__discount discounts__discount--position">
+                          {{- 'icon-discount.svg' | inline_asset_content -}}
+                          {{ discount.title | escape }}
+                          (-{{ discount.total_allocated_amount | money }})
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+
+                {%- assign show_donation = false -%}
+                {%- for item in cart.items -%}
+                  {%- if item.product.tags contains 'Marble Falls Mustangs' -%}
+                    {%- assign show_donation = true -%}
+                    {%- break -%}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                {%- if show_donation -%}
+                  <div id="donationSection" class="marbelCart">
+                    <label for="donationAmount">Add a Donation:</label>
+                    <div class="plusBtnWrap">
+                      <div class="plusMinusBtn">
+                        {% comment %} <button type="button" id="donationMinus" aria-label="Decrease donation" style="font-size:1.5em;">−</button> {% endcomment %}
+                        <input
+                          type="text"
+                          id="donationAmount"
+                          placeholder="Enter amount"
+                        />
+                        {% comment %} <button type="button" id="donationPlus" aria-label="Increase donation" style="font-size:1.5em;">+</button> {% endcomment %}
+                      </div>
+                      <button type="button" id="addDonationBtn">Add Donation</button>
+                    </div>
+                  </div>
+                  <script>
+                  (function(){
+                    const MIN_DONATION = 5;
+                    const STEP = 5;
+                    
+                    const input = document.getElementById('donationAmount');
+                    const addBtn = document.getElementById('addDonationBtn');
+                    let amount = input.value;
+                    
+                    {% comment %} const plusBtn = document.getElementById('donationPlus');
+                    const minusBtn = document.getElementById('donationMinus');
+
+                    plusBtn.addEventListener('click', () => {
+                      amount += STEP;
+                      input.value = amount;
+                    });
+
+                    minusBtn.addEventListener('click', () => {
+                      if (amount > MIN_DONATION) {
+                        amount -= STEP;
+                        input.value = amount;
+                      }
+                    }); {% endcomment %}
+
+                    addBtn.addEventListener('click', async () => {
+                      // Replace with your "Donation" product variant ID!
+                      
+                      const donationVariantId = 51561537372454;
+                      // Remove old donation line item if exists
+                      const cart = await fetch('/cart.js').then(res => res.json());
+                      const existingDonation = cart.items.find(i => i.properties && i.properties.CustomDonation);
+                      if (existingDonation) {
+                        await fetch('/cart/change.js', {
+                          method: 'POST',
+                          headers: {'Content-Type':'application/json'},
+                          body: JSON.stringify({ id: existingDonation.key, quantity: 0 })
+                        });
+                      }
+                      // Add new donation
+                      await fetch('/cart/add.js', {
+                        method: 'POST',
+                        headers: {'Content-Type':'application/json'},
+                        body: JSON.stringify({
+                          items: [{
+                            id: donationVariantId,
+                            quantity: input.value,
+                            properties: { CustomDonation: `$${input.value}` }
+                          }]
+                        })
+                      });
+                      alert(`Donation of $${input.value} added!`);
+                      location.reload();
+                    });
+                  })();
+                  </script>
+                  <div class="swag-locker-summary" style="margin-top: 2rem; border-top: 1px solid #ccc; padding-top: 0;">
+                    <div class="donateSales">ALL SALES ARE FINAL:</div>
+                    <div class="donateRow">
+                    <strong>Donation Total (25% of retail):</strong>
+                
+                    {% assign swag_total = 0 %}
+                    {% for item in cart.items %}
+                      {% if item.product.tags contains 'Marble Falls Mustangs' and item.variant_id != 51561537372454 %}
+                        {% assign item_discount = item.original_line_price | times: 25 | divided_by: 100 %}
+                        {% assign swag_total = swag_total | plus: item_discount %}
+                      {% endif %}
+                    {% endfor %}
+
+                    <p style="margin:.2rem 0 1rem 0;color:red;">{{ swag_total | money_without_trailing_zeros }}</p>
+                  </div>
+
+                  {% assign excluded_full_total = 0 %}
+                  {% assign excluded_line = nil %}
+
+                  {% for item in cart.items %}
+                    {% if item.variant_id == 51561537372454 %}
+                      {% assign excluded_full_total = excluded_full_total | plus: item.original_line_price %}
+                      {% assign excluded_line = forloop.index %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if excluded_full_total > 0 %}
+                    <div class="donateRow">
+                      <strong class="donateStrong">Additional Donation:</strong>
+                      <p style="margin-top:0; color:#555;">
+                        {{ excluded_full_total | money_without_trailing_zeros }}
+                      </p>
+                    </div>
+                    <p class="closeBtnDonate">
+                      <a href="/cart/change?line={{ excluded_line }}&quantity=0" >Remove addtional donation</a>
+                    </p>
+                  {% endif %}
+      
+                  {% comment %}          <label for="swag-donation">Additional Donation:</label><br>
+                  <input
+                    id="swag-donation"
+                    class="field__input"
+                    type="number"
+                    min="0"
+                    step="1"
+                    name="donation"
+                    placeholder="e.g. 10.00"
+                    style="border: 2px solid red; padding: 1rem; max-width: 14rem; margin: 1rem 0;"
+                  >
+                  {% endcomment %}  
+
+                  </div>
+                  <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const donationInput = document.getElementById('swag-donation');
+                      const subtotalEl = document.querySelector('p.totals__total-value'); // Targeting the subtotal
+                      if (!donationInput || !subtotalEl) return;
+
+                      const baseSubtotal = {{ cart.total_price | json }}; // Shopify returns price in cents
+
+                      function updateSubtotal() {
+                        const donation = parseFloat(donationInput.value || 0);
+                        const donationCents = Math.round(donation * 100);
+                        const newTotal = baseSubtotal + donationCents;
+
+                        subtotalEl.textContent = Shopify.formatMoney(newTotal, Shopify.money_format);
+                      }
+
+                      // Update when input changes
+                      donationInput.addEventListener('input', updateSubtotal);
+
+                      // Update once on page load (in case there's already a value)
+                      updateSubtotal();
+                    });
+                  </script>
+                {%- endif -%}
+                
+                <div class="totals marbelTotals">
+                  <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
+                  <p class="totals__total-value"  data-cart-subtotal>{{ cart.total_price | money_with_currency }}</p>
+                </div>
+
+                  
+                  {% comment %} Swag Locker donation
+                    {% assign swag_cart = cart.attributes['Swag Locker Page'] %}
+                    
+                    {% if swag_cart %}
+                      <div class="swag-locker-summary" style="margin-top: 2rem; border-top: 1px solid #ccc; padding-top: 0;">
+                        <div class="donateSales">ALL ARE SALES FINAL:</div>
+                        <div class="donateRow">
+                        <strong>Donation Total (25% of retail):</strong>
+                    
+                        {% assign swag_total = 0 %}
+                        {% for item in cart.items %}
+                          {% unless item.variant_id == 51561537372454 %}
+                            {% assign item_discount = item.original_line_price | times: 0.25 | divided_by: 1 %}
+                            {% assign swag_total = swag_total | plus: item_discount %}
+                          {% endunless %}
+                        {% endfor %}
+
+                    
+                        <p style="margin:.2rem 0 1rem 0;color:red;">{{ swag_total | money_without_trailing_zeros }}</p>
+                      </div>
+
+                      {% assign excluded_full_total = 0 %}
+                      {% assign excluded_line = nil %}
+
+                      {% for item in cart.items %}
+                        {% if item.variant_id == 51561537372454 %}
+                          {% assign excluded_full_total = excluded_full_total | plus: item.original_line_price %}
+                          {% assign excluded_line = forloop.index %}
+                        {% endif %}
+                      {% endfor %}
+
+                      {% if excluded_full_total > 0 %}
+                        <div class="donateRow">
+                          <strong class="donateStrong">Additional Donation:</strong>
+                          <p style="margin-top:0; color:#555;">
+                            {{ excluded_full_total | money_without_trailing_zeros }}
+                          </p>
+                        </div>
+                        <p class="closeBtnDonate">
+                          <a href="/cart/change?line={{ excluded_line }}&quantity=0" >Remove addtional donation</a>
+                        </p>
+                      {% endif %}
+                        
+                  {% comment %}          <label for="swag-donation">Additional Donation:</label><br>
+                  <input
+                    id="swag-donation"
+                    class="field__input"
+                    type="number"
+                    min="0"
+                    step="1"
+                    name="donation"
+                    placeholder="e.g. 10.00"
+                    style="border: 2px solid red; padding: 1rem; max-width: 14rem; margin: 1rem 0;"
+                  >
+                  {% endcomment %}  
+
+                  </div>
+                  <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const donationInput = document.getElementById('swag-donation');
+                      const subtotalEl = document.querySelector('p.totals__total-value'); // Targeting the subtotal
+                      if (!donationInput || !subtotalEl) return;
+
+                      const baseSubtotal = {{ cart.total_price | json }}; // Shopify returns price in cents
+
+                      function updateSubtotal() {
+                        const donation = parseFloat(donationInput.value || 0);
+                        const donationCents = Math.round(donation * 100);
+                        const newTotal = baseSubtotal + donationCents;
+
+                        subtotalEl.textContent = Shopify.formatMoney(newTotal, Shopify.money_format);
+                      }
+
+                      // Update when input changes
+                      donationInput.addEventListener('input', updateSubtotal);
+
+                      // Update once on page load (in case there's already a value)
+                      updateSubtotal();
+                    });
+                  </script>
+
+                  {% endif %}
+                  {% endcomment %}
+                  {% comment %} Swag Locker donation{% endcomment %}
+            
+                <small style="margin: 8px 0 !important;" class="tax-note caption-large rte">
+                  {%- if cart.duties_included and cart.taxes_included -%}
+                    {%- if shop.shipping_policy.body == blank -%}
+                      {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
+                    {%- else -%}
+                      {{
+                        'sections.cart.duties_and_taxes_included_shipping_at_checkout_with_policy_html'
+                        | t: link: shop.shipping_policy.url
+                      }}
+                    {%- endif -%}
+                  {%- elsif cart.duties_included == false and cart.taxes_included -%}
+                    {%- if shop.shipping_policy.body == blank -%}
+                      {{ 'sections.cart.taxes_included_shipping_at_checkout_without_policy' | t }}
+                    {%- else -%}
+                      {{
+                        'sections.cart.taxes_included_shipping_at_checkout_with_policy_html'
+                        | t: link: shop.shipping_policy.url
+                      }}
+                    {%- endif -%}
+                  {%- elsif cart.duties_included and cart.taxes_included == false -%}
+                    {%- if shop.shipping_policy.body == blank -%}
+                      {{ 'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                    {%- else -%}
+                      {{
+                        'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                        | t: link: shop.shipping_policy.url
+                      }}
+                    {%- endif -%}
+                  {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
+                    {%- if shop.shipping_policy.body == blank -%}
+                      {{ 'sections.cart.taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                    {%- else -%}
+                      {{
+                        'sections.cart.taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                        | t: link: shop.shipping_policy.url
+                      }}
+                    {%- endif -%}
+                  {%- endif -%}
+                </small>
+              </div>
+            {%- else -%}
+              <div class="cart__ctas" {{ block.shopify_attributes }}>
+                <button
+                  type="submit"
+                  id="checkout"
+                  class="cart__checkout-button button"
+                  name="checkout"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                  form="cart"
+                >
+                  {{ 'sections.cart.checkout' | t }}
+                </button>
+              </div>
+
+              {%- if additional_checkout_buttons -%}
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+              {%- endif -%}
+          {%- endcase -%}
+        {% endfor %}
+
+        <div id="cart-errors"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-cart-footer.name",
+  "class": "cart__footer-wrapper",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

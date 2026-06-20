@@ -1,0 +1,91 @@
+{% assign page_handle = request.path | remove: '/pages/' | remove: '/' %}
+{% assign current_page = pages[page_handle] %}
+
+{% assign header_image = current_page.metafields.custom.header_image %}
+{% assign team_logo = current_page.metafields.custom.team_logo %}
+{% assign collection = current_page.metafields.custom.swag_locker_collections.value %}
+
+{% if header_image != blank %}
+  <div class="swag-locker-header" style="margin-bottom: 20px;">
+    <img src="{{ header_image | image_url: width: 1600 }}" alt="Header Image" style="width: 100%;">
+  </div>
+{% endif %}
+
+{% if team_logo != blank %}
+  <div class="swag-locker-team-logo" style="text-align: center; margin: 20px 0;">
+    <img src="{{ team_logo | image_url: width: 300 }}" alt="Team Logo" style="max-width: 200px;">
+  </div>
+{% endif %}
+<h2>25% of every dollar you spend on these products goes directly back to the school!</h2>
+<h2 style="font-weight:600;margin-bottom:0;">TOTAL DONATIONS</h2>
+{% assign donation_total = page.metafields.custom.total_donations.value | default: 0 %}
+
+<h1 style="color:red;text-align:center;margin-top:0;">
+  {{ donation_total | money }}
+</h1>
+
+<p style="margin-bottom:-1rem; color:red;text-align:center;">ALL ARE SALES FINAL</p>
+{% if collection != blank and collection.products.size > 0 %}
+  <div class="swag-locker-products" style="display: grid; gap: 40px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+    {% for product in collection.products %}
+      {% assign first_variant = product.variants.first %}
+      <div class="product-card" style="border: 1px solid #ccc; padding: 20px; border-radius: 8px;">
+        <h2 style="font-size: 1.5rem;">{{ product.title }}</h2>
+
+        {% if product.featured_image %}
+          <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" style="width: 100%; max-width: 300px; margin-bottom: 10px;">
+        {% endif %}
+
+        {% if product.tags contains 'Marble Falls Caps' %}
+          <p class="product-card-badge">Choose your custom patch in the next step</p>
+        {% else %}
+          <p>{{ product.description | strip_html | truncatewords: 15 }}</p>
+        {% endif %}
+
+        {% if first_variant %}
+          <p><strong>Retail Price:</strong> {{ first_variant.price | money }}</p>
+          <p style="background-color: rgb(25 17 81); border:2px red solid; padding:1rem;border-radius:8px;text-align:center;color:#fff;"><strong>Your 25% Donation =</strong><br>{{ first_variant.price | times: 0.25 | money }}</p>
+        {% endif %}
+
+      {% comment %}<a href="{{ product.url }}" style="display: inline-block; margin-top: 10px; background: #000; color: #fff; padding: 10px 15px; text-decoration: none;">Choose Options</a>{% endcomment %}
+      <a href="{{ product.url }}?from_swag={{ page.handle }}" style="display: inline-block; margin-top: 10px; background: #000; color: #fff; padding: 10px 15px; text-decoration: none;">Choose Options</a>
+
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>No products found in this collection.</p>
+{% endif %}
+<style>
+  .swag-locker-products{margin:5vw;}
+  </style>
+
+<script>
+async function updateMarbleFallsTotal() {
+  try {
+    const response = await fetch('/cart.js');
+    const cart = await response.json();
+
+    let marbleFallsTotal = 0;
+
+    for (const item of cart.items) {
+      // Check if product handle includes 'marble-falls'
+      // or if you have a collection metafield/handle to check
+      if (item.url.includes('/collections/swag-locker-marble-falls-mustangs')) {
+        marbleFallsTotal += item.line_price / 100; // convert cents to dollars
+      }
+    }
+
+    const commission = (marbleFallsTotal * 0.25).toFixed(2);
+    document.getElementById('marble-falls-total').textContent = `$${commission}`;
+  } catch (err) {
+    console.error('Error fetching cart:', err);
+  }
+}
+
+// Run on load
+updateMarbleFallsTotal();
+
+// Optionally re-run if cart updates
+document.addEventListener('cart:updated', updateMarbleFallsTotal);
+</script>

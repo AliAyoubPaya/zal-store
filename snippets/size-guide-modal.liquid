@@ -1,0 +1,34 @@
+{% assign size_chart = blank %}
+
+{%- comment -%}
+Check all product collections for category-specific size chart
+{%- endcomment -%}
+
+{% for coll in product.collections %}
+  {% if coll.handle == 'all-mens-shirts' %}
+    {% assign size_chart = '' %}
+    {% break %}
+  {% elsif coll.handle == 'polo-shirts' %}
+    {% assign size_chart = '' %}
+    {% break %}
+  {% elsif coll.handle == 'hoodies' %}
+    {% assign size_chart = '' %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{%- comment -%}
+Fallback to default size chart if no collection matches
+{%- endcomment -%}
+{% if size_chart == blank %}
+  {% assign size_chart = 'https://cdn.shopify.com/s/files/1/0896/2467/4598/files/pssizechartimage.webp' %}
+{% endif %}
+
+<!-- MODAL -->
+<div id="sizeGuideModal" class="size-modal hidden">
+  <div class="size-modal-overlay" onclick="closeSizeGuide()"></div>
+  <div class="size-modal-content">
+    <button class="size-modal-close" onclick="closeSizeGuide()">×</button>
+    <img src="{{ size_chart }}" alt="Size Guide">
+  </div>
+</div>

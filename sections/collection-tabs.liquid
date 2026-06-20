@@ -1,0 +1,266 @@
+<section class="collection-tabs-section">
+  <div class="page-width {{ section.settings.custom_class }}">
+
+    {% if section.settings.title != blank %}
+      <div class="collection-tabs-heading-wrapper">
+        <h2
+          id="SectionHeading-{{ section.id }}"
+          class="collection-list-title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        >
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {% endif %}
+
+    <div class="collection-tabs-wrapper">
+      {% for block in section.blocks %}
+        {% assign current_collection = block.settings.collection %}
+
+        {% if current_collection != blank %}
+          <a href="{{ current_collection.url }}" class="collection-tab">
+            <div class="collection-icon">
+              {% if current_collection.featured_image %}
+                {{ current_collection.featured_image | image_url: width: 100 | image_tag }}
+              {% endif %}
+            </div>
+
+            <span>{{ current_collection.title }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="collection-scroll-hint">
+      ← Swipe Categories →
+    </div>
+
+  </div>
+</section>
+
+<style>
+.collection-tabs-section{
+  padding: 30px 0;
+}
+h2{
+ margin-bottom: 50px !important;
+}
+.collection-tabs-heading-wrapper{
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.collection-tabs-heading-wrapper .collection-list-title{
+  margin: 0;
+}
+
+.collection-tabs-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.collection-tab{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:50px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  text-decoration:none;
+  transition:all .3s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+
+.collection-tab:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,0,0,.10);
+  background:#F36802;
+  border-color:#F36802;
+}
+
+.collection-tab:hover span{
+  color:#fff;
+}
+
+.collection-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  overflow:hidden;
+  flex-shrink:0;
+  background:#f5f5f5;
+}
+
+.collection-icon img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.collection-tab span{
+  color:#111;
+  font-size:14px;
+  font-weight:600;
+  line-height:1;
+  white-space:nowrap;
+  transition:color .3s ease;
+}
+
+.collection-scroll-hint{
+  display:none;
+}
+
+/* Tablet */
+@media(max-width:990px){
+  .collection-tabs-wrapper{
+    justify-content:flex-start;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+    padding-bottom:8px;
+    position:relative;
+  }
+
+  .collection-tabs-wrapper::-webkit-scrollbar{
+    display:none;
+  }
+
+  .collection-tabs-wrapper::after{
+    content:'';
+    position:sticky;
+    right:0;
+    top:0;
+    width:60px;
+    height:100%;
+    background:linear-gradient(
+      to right,
+      rgba(255,255,255,0),
+      rgba(255,255,255,1)
+    );
+    pointer-events:none;
+    margin-left:-60px;
+  }
+}
+
+/* Mobile */
+@media(max-width:749px){
+  .collection-tabs-heading-wrapper{
+    margin-bottom:18px;
+  }
+
+  .collection-tabs-wrapper{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    justify-content:flex-start;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+    scroll-behavior:smooth;
+  }
+
+  .collection-tabs-wrapper::-webkit-scrollbar{
+    display:none;
+  }
+
+  .collection-tab{
+    flex:0 0 auto;
+    padding:10px 14px;
+  }
+
+  .collection-icon{
+    width:36px;
+    height:36px;
+  }
+
+  .collection-tab span{
+    font-size:12px;
+  }
+
+  .collection-scroll-hint{
+    display:block;
+    text-align:center;
+    margin-top:10px;
+    font-size:12px;
+    font-weight:600;
+    color:#F36802;
+    animation:swipeHint 1.8s infinite;
+  }
+
+  @keyframes swipeHint{
+    0%{
+      transform:translateX(0);
+      opacity:.5;
+    }
+    50%{
+      transform:translateX(8px);
+      opacity:1;
+    }
+    100%{
+      transform:translateX(0);
+      opacity:.5;
+    }
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Collection Tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Shop by Category"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "default": "h1",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class (optional)",
+      "info": "Enter a unique class name"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Collection Tabs"
+    }
+  ]
+}
+{% endschema %}

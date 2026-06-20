@@ -1,0 +1,102 @@
+{%- liquid
+  assign product_tags = product.tags | join: ','
+  assign hotspot_data = ''
+
+  if product_tags contains 'shirts'
+    # Coordinates for Shirts based on image_f21ddc.jpg
+    assign hotspot_data = 'collar_feature|11|27|1,sleeve_feature|28|6|1,zipper_feature|46|17|1,fabric_feature|52|31|1,pocket_feature|79|33|1,vent_back|21|26|2,waist_feature|35|9|2,hem_feature|80|29|2,zipper_feature_back|76|41|2' | split: ','
+  
+  elsif product_tags contains 'shorts'
+    # Simplified coordinates for Shorts
+    assign hotspot_data = 'waist_feature|10|50|1,fabric_feature|50|50|1' | split: ','
+  
+  elsif product_tags contains 'hoodies'
+    # Specific coordinates for Men Hoodies
+    assign hotspot_data = 'collar_feature|10|25|1,sleeve_feature|25|5|1,zipper_feature|40|15|1,fabric_feature|50|30|1,pocket_feature|75|30|1' | split: ','
+  endif
+-%}
+
+<div class="product-features-container">
+  <div class="hotspot-grid">
+    <!-- Front Image -->
+    <div class="image-wrapper">
+      <img src="{{ product.images[0] | image_url: width: 800 }}" alt="Front View">
+      {% for data in hotspot_data %}
+        {% assign details = data | split: '|' %}
+        {% if details[3] == '1' %}
+          <button class="hotspot-btn" data-key="{{ details[0] }}" style="top:{{ details[1] }}%; left:{{ details[2] }}%;">+</button>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Back Image (if exists) -->
+    <div class="image-wrapper">
+      <img src="{{ product.images[1] | image_url: width: 800 }}" alt="Back View">
+      {% for data in hotspot_data %}
+        {% assign details = data | split: '|' %}
+        {% if details[3] == '2' %}
+          <button class="hotspot-btn" data-key="{{ details[0] }}" style="top:{{ details[1] }}%; left:{{ details[2] }}%;">+</button>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+<div class="productfeatureWrap">
+  <h2 class="center">PRODUCT FEATURES</h2>
+
+  <div class="features-accordion">
+    {% for item in hotspot_data %}
+      {% assign hotspot_parts = item | split: '|' %}
+      {% assign key = hotspot_parts[0] %}
+      
+      {%- comment -%} Pull the real content from the metafield {%- endcomment -%}
+      {% assign raw_content = product.metafields.custom[key] | metafield_tag | strip_html %}
+      
+      {% if raw_content != blank %}
+        {%- comment -%} Split by "|" to separate the Custom Title from the Content {%- endcomment -%}
+        {% assign content_parts = raw_content | split: '|' %}
+        
+        <div class="accordion-item" id="item-{{ key }}">
+          <button class="accordion-header" onclick="toggleAccordion('{{ key }}')">
+            <span class="custom-title">{{ content_parts[0] | strip }}</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="prose">
+              <p>{{ content_parts[1] | strip }}</p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+ </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll('.hotspot-btn');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.getAttribute('data-key');
+      const targetItem = document.getElementById(`item-${key}`);
+
+      if (targetItem) {
+        // 1. Close all others
+        document.querySelectorAll('.accordion-item').forEach(item => item.classList.remove('active'));
+        
+        // 2. Open target
+        targetItem.classList.add('active');
+
+        // 3. Smooth Scroll to the accordion
+        targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+});
+
+function toggleAccordion(key) {
+  const item = document.getElementById(`item-${key}`);
+  item.classList.toggle('active');
+}
+</script>
