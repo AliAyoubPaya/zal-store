@@ -1,7 +1,247 @@
-<section class="collection-tabs-section">
-  <div class="page-width {{ section.settings.custom_class }}">
+{%- liquid
+  assign section_width_class = 'pageContainer'
 
-    {% if section.settings.title != blank %}
+  if section.settings.section_width == 'full_width'
+    assign section_width_class = 'pageContainer pageContainer--full-width'
+  endif
+
+  assign mobile_padding_top = section.settings.padding_top
+  assign mobile_padding_bottom = section.settings.padding_bottom
+
+  if section.settings.mobile_padding == 'compact'
+    assign mobile_padding_top = section.settings.padding_top | times: 0.75 | round: 0
+    assign mobile_padding_bottom = section.settings.padding_bottom | times: 0.75 | round: 0
+  elsif section.settings.mobile_padding == 'none'
+    assign mobile_padding_top = 0
+    assign mobile_padding_bottom = 0
+  endif
+-%}
+
+{%- style -%}
+  .collection-tabs-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .collection-tabs-section-{{ section.id }} .pageContainer {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  .collection-tabs-section-{{ section.id }} .pageContainer.pageContainer--full-width {
+    max-width: none;
+  }
+
+  .collection-tabs-section-{{ section.id }} h2 {
+    margin-bottom: 50px !important;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tabs-heading-wrapper {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tabs-heading-wrapper .collection-list-title {
+    margin-top: 0;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tab {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 68px;
+    padding: 12px 18px;
+    border-radius: 50px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    text-decoration: none;
+    transition: transform .3s ease, box-shadow .3s ease, background-color .3s ease, border-color .3s ease, color .3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    color: #111;
+    box-sizing: border-box;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tab:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.10);
+    background: #F36802;
+    border-color: #F36802;
+    color: #fff;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tab:focus-visible {
+    outline: 2px solid #F36802;
+    outline-offset: 3px;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-icon {
+    display: grid;
+    place-items: center;
+    width: var(--collection-tab-icon-size, 42px);
+    height: var(--collection-tab-icon-size, 42px);
+    flex: 0 0 var(--collection-tab-icon-size, 42px);
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--collection-tab-icon-background, #f5f5f5);
+    transition: background-color .3s ease;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tab--built-in:hover .collection-icon {
+    background: rgba(255,255,255,.18);
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tab-icon-image,
+  .collection-tabs-section-{{ section.id }} .collection-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tab-icon-svg {
+    display: block;
+    width: 58%;
+    height: 58%;
+    color: #6b7280;
+    transition: color .3s ease;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tab:hover .collection-tab-icon-svg {
+    color: #fff;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-tab__title {
+    color: currentColor;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    transition: color .3s ease;
+  }
+
+  .collection-tabs-section-{{ section.id }} .collection-scroll-hint {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .collection-tabs-section-{{ section.id }} .pageContainer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .collection-tabs-section-{{ section.id }} .pageContainer {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .collection-tabs-section-{{ section.id }} .pageContainer {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .collection-tabs-section-{{ section.id }} .collection-tabs-wrapper {
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-behavior: smooth;
+      scroll-padding-inline: 2px;
+      -webkit-overflow-scrolling: touch;
+      padding: 2px 2px 8px;
+    }
+
+    .collection-tabs-section-{{ section.id }} .collection-tabs-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .collection-tabs-section-{{ section.id }} .collection-tab {
+      flex: 0 0 auto;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .collection-tabs-section-{{ section.id }} {
+      padding-top: {{ mobile_padding_top }}px;
+      padding-bottom: {{ mobile_padding_bottom }}px;
+    }
+
+    .collection-tabs-section-{{ section.id }} .collection-tabs-heading-wrapper {
+      margin-bottom: 18px;
+    }
+
+    .collection-tabs-section-{{ section.id }} h2 {
+      margin-bottom: 42px !important;
+    }
+
+    .collection-tabs-section-{{ section.id }} .collection-tab {
+      min-height: 56px;
+      padding: 10px 14px;
+      gap: 9px;
+    }
+
+    .collection-tabs-section-{{ section.id }} .collection-icon {
+      width: var(--collection-tab-icon-size-mobile, 36px);
+      height: var(--collection-tab-icon-size-mobile, 36px);
+      flex-basis: var(--collection-tab-icon-size-mobile, 36px);
+    }
+
+    .collection-tabs-section-{{ section.id }} .collection-tab__title {
+      font-size: 12px;
+      line-height: 1.15;
+    }
+
+    .collection-tabs-section-{{ section.id }} .collection-scroll-hint {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #F36802;
+      animation: collectionTabsSwipeHint-{{ section.id }} 1.8s infinite;
+    }
+
+    @keyframes collectionTabsSwipeHint-{{ section.id }} {
+      0% {
+        transform: translateX(0);
+        opacity: .5;
+      }
+
+      50% {
+        transform: translateX(8px);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: .5;
+      }
+    }
+  }
+{%- endstyle -%}
+
+<section class="collection-tabs-section collection-tabs-section-{{ section.id }}">
+  <div class="{{ section.settings.custom_class }} collection-tabs-container {{ section_width_class }}">
+    {%- if section.settings.title != blank -%}
       <div class="collection-tabs-heading-wrapper">
         <h2
           id="SectionHeading-{{ section.id }}"
@@ -10,201 +250,86 @@
           {{ section.settings.title }}
         </h2>
       </div>
-    {% endif %}
+    {%- endif -%}
 
     <div class="collection-tabs-wrapper">
-      {% for block in section.blocks %}
-        {% assign current_collection = block.settings.collection %}
+      {%- for block in section.blocks -%}
+        {%- assign current_collection = block.settings.collection -%}
 
-        {% if current_collection != blank %}
-          <a href="{{ current_collection.url }}" class="collection-tab">
-            <div class="collection-icon">
-              {% if current_collection.featured_image %}
-                {{ current_collection.featured_image | image_url: width: 100 | image_tag }}
-              {% endif %}
-            </div>
+        {%- if current_collection != blank -%}
+          {%- assign tab_title = block.settings.title_override | default: current_collection.title -%}
+          {%- assign icon_source = block.settings.icon_source | default: 'collection_image' -%}
+          {%- assign built_in_icon = block.settings.built_in_icon | default: 'grid' -%}
+          {%- assign icon_size = block.settings.icon_size | default: 42 -%}
+          {%- assign icon_size_mobile = icon_size | minus: 6 -%}
+          {%- if icon_size_mobile < 32 -%}
+            {%- assign icon_size_mobile = 32 -%}
+          {%- endif -%}
+          {%- assign icon_background = block.settings.icon_background_color | default: '#f5f5f5' -%}
+          {%- assign collection_icon = current_collection.featured_image -%}
+          {%- if collection_icon == blank and current_collection.image != blank -%}
+            {%- assign collection_icon = current_collection.image -%}
+          {%- endif -%}
+          {%- capture tab_aria_label -%}Shop {{ tab_title }} collection{%- endcapture -%}
+          {%- capture fallback_icon_alt -%}{{ tab_title }} category icon{%- endcapture -%}
 
-            <span>{{ current_collection.title }}</span>
+          <a
+            href="{{ current_collection.url }}"
+            class="collection-tab collection-tab--{{ icon_source | replace: '_', '-' }}"
+            aria-label="{{ tab_aria_label | strip | escape }}"
+            style="--collection-tab-icon-size: {{ icon_size }}px; --collection-tab-icon-size-mobile: {{ icon_size_mobile }}px; --collection-tab-icon-background: {{ icon_background }};"
+            {{ block.shopify_attributes }}
+          >
+            <span class="collection-icon">
+              {%- case icon_source -%}
+                {%- when 'custom_image' -%}
+                  {%- if block.settings.custom_icon != blank -%}
+                    {%- assign custom_icon_alt = block.settings.custom_icon.alt | default: fallback_icon_alt -%}
+                    {{
+                      block.settings.custom_icon
+                      | image_url: width: 160
+                      | image_tag:
+                        alt: custom_icon_alt,
+                        loading: 'lazy',
+                        class: 'collection-tab-icon-image'
+                    }}
+                  {%- endif -%}
+
+                {%- when 'built_in' -%}
+                  {%- render 'collection-tab-icon',
+                    icon: built_in_icon,
+                    icon_class: 'collection-tab-icon-svg',
+                    icon_size: 24
+                  -%}
+
+                {%- else -%}
+                  {%- if collection_icon != blank -%}
+                    {%- assign collection_icon_alt = collection_icon.alt | default: fallback_icon_alt -%}
+                    {{
+                      collection_icon
+                      | image_url: width: 160
+                      | image_tag:
+                        alt: collection_icon_alt,
+                        loading: 'lazy',
+                        class: 'collection-tab-icon-image'
+                    }}
+                  {%- endif -%}
+              {%- endcase -%}
+            </span>
+
+            <span class="collection-tab__title">{{ tab_title }}</span>
           </a>
-        {% endif %}
-      {% endfor %}
+        {%- endif -%}
+      {%- endfor -%}
     </div>
 
-    <div class="collection-scroll-hint">
-      ← Swipe Categories →
-    </div>
-
+    {%- if section.settings.enable_swipe_hint and section.settings.swipe_hint_text != blank -%}
+      <div class="collection-scroll-hint" aria-hidden="true">
+        <span>&larr;</span> {{ section.settings.swipe_hint_text }} <span>&rarr;</span>
+      </div>
+    {%- endif -%}
   </div>
 </section>
-
-<style>
-.collection-tabs-section{
-  padding: 30px 0;
-}
-h2{
- margin-bottom: 50px !important;
-}
-.collection-tabs-heading-wrapper{
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.collection-tabs-heading-wrapper .collection-list-title{
-  margin: 0;
-}
-
-.collection-tabs-wrapper{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.collection-tab{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px 18px;
-  border-radius:50px;
-  background:#fff;
-  border:1px solid #e5e7eb;
-  text-decoration:none;
-  transition:all .3s ease;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
-}
-
-.collection-tab:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(0,0,0,.10);
-  background:#F36802;
-  border-color:#F36802;
-}
-
-.collection-tab:hover span{
-  color:#fff;
-}
-
-.collection-icon{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  overflow:hidden;
-  flex-shrink:0;
-  background:#f5f5f5;
-}
-
-.collection-icon img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.collection-tab span{
-  color:#111;
-  font-size:14px;
-  font-weight:600;
-  line-height:1;
-  white-space:nowrap;
-  transition:color .3s ease;
-}
-
-.collection-scroll-hint{
-  display:none;
-}
-
-/* Tablet */
-@media(max-width:990px){
-  .collection-tabs-wrapper{
-    justify-content:flex-start;
-    overflow-x:auto;
-    flex-wrap:nowrap;
-    scrollbar-width:none;
-    -ms-overflow-style:none;
-    padding-bottom:8px;
-    position:relative;
-  }
-
-  .collection-tabs-wrapper::-webkit-scrollbar{
-    display:none;
-  }
-
-  .collection-tabs-wrapper::after{
-    content:'';
-    position:sticky;
-    right:0;
-    top:0;
-    width:60px;
-    height:100%;
-    background:linear-gradient(
-      to right,
-      rgba(255,255,255,0),
-      rgba(255,255,255,1)
-    );
-    pointer-events:none;
-    margin-left:-60px;
-  }
-}
-
-/* Mobile */
-@media(max-width:749px){
-  .collection-tabs-heading-wrapper{
-    margin-bottom:18px;
-  }
-
-  .collection-tabs-wrapper{
-    flex-wrap:nowrap;
-    overflow-x:auto;
-    justify-content:flex-start;
-    scrollbar-width:none;
-    -ms-overflow-style:none;
-    scroll-behavior:smooth;
-  }
-
-  .collection-tabs-wrapper::-webkit-scrollbar{
-    display:none;
-  }
-
-  .collection-tab{
-    flex:0 0 auto;
-    padding:10px 14px;
-  }
-
-  .collection-icon{
-    width:36px;
-    height:36px;
-  }
-
-  .collection-tab span{
-    font-size:12px;
-  }
-
-  .collection-scroll-hint{
-    display:block;
-    text-align:center;
-    margin-top:10px;
-    font-size:12px;
-    font-weight:600;
-    color:#F36802;
-    animation:swipeHint 1.8s infinite;
-  }
-
-  @keyframes swipeHint{
-    0%{
-      transform:translateX(0);
-      opacity:.5;
-    }
-    50%{
-      transform:translateX(8px);
-      opacity:1;
-    }
-    100%{
-      transform:translateX(0);
-      opacity:.5;
-    }
-  }
-}
-</style>
 
 {% schema %}
 {
@@ -237,6 +362,74 @@ h2{
       ]
     },
     {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "default": "container",
+      "options": [
+        {
+          "value": "container",
+          "label": "Container"
+        },
+        {
+          "value": "full_width",
+          "label": "Full width"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop padding top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop padding bottom",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "mobile_padding",
+      "label": "Mobile section padding",
+      "default": "compact",
+      "options": [
+        {
+          "value": "compact",
+          "label": "Compact"
+        },
+        {
+          "value": "same",
+          "label": "Match desktop"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_swipe_hint",
+      "label": "Show mobile swipe hint",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "swipe_hint_text",
+      "label": "Swipe hint text",
+      "default": "Swipe Categories"
+    },
+    {
       "type": "text",
       "id": "custom_class",
       "label": "Custom CSS class (optional)",
@@ -252,6 +445,125 @@ h2{
           "type": "collection",
           "id": "collection",
           "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title_override",
+          "label": "Tab title override",
+          "info": "Leave blank to use the selected collection title."
+        },
+        {
+          "type": "select",
+          "id": "icon_source",
+          "label": "Icon source",
+          "default": "collection_image",
+          "options": [
+            {
+              "value": "custom_image",
+              "label": "Custom image"
+            },
+            {
+              "value": "built_in",
+              "label": "Built-in icon"
+            },
+            {
+              "value": "collection_image",
+              "label": "Collection image fallback"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon image"
+        },
+        {
+          "type": "select",
+          "id": "built_in_icon",
+          "label": "Built-in icon",
+          "default": "grid",
+          "options": [
+            {
+              "value": "grid",
+              "label": "All categories / grid"
+            },
+            {
+              "value": "flame",
+              "label": "Trending / flame"
+            },
+            {
+              "value": "baby",
+              "label": "Baby / teddy"
+            },
+            {
+              "value": "home",
+              "label": "Home"
+            },
+            {
+              "value": "watch",
+              "label": "Smart wearables / watch"
+            },
+            {
+              "value": "sparkle",
+              "label": "Personal care / sparkle"
+            },
+            {
+              "value": "smartphone",
+              "label": "Mobile accessories / smartphone"
+            },
+            {
+              "value": "utensils",
+              "label": "Kitchen & dining / utensils"
+            },
+            {
+              "value": "heart-pulse",
+              "label": "Health & wellness / heart pulse"
+            },
+            {
+              "value": "dumbbell",
+              "label": "Fitness & sports / dumbbell"
+            },
+            {
+              "value": "laptop",
+              "label": "Consumer electronics / laptop"
+            },
+            {
+              "value": "car",
+              "label": "Automotive / car"
+            },
+            {
+              "value": "headphones",
+              "label": "Audio & sound / headphones"
+            },
+            {
+              "value": "shopping-bag",
+              "label": "Shopping bag"
+            },
+            {
+              "value": "star",
+              "label": "Star"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "min": 28,
+          "max": 56,
+          "step": 2,
+          "unit": "px",
+          "label": "Icon size",
+          "default": 42
+        },
+        {
+          "type": "color",
+          "id": "icon_background_color",
+          "label": "Icon background color",
+          "default": "#f5f5f5"
         }
       ]
     }
