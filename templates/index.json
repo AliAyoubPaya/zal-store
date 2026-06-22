@@ -890,14 +890,14 @@
         "text_iCQgg7": {
           "type": "text",
           "settings": {
-            "text": "stretched - uv protection",
+            "text": "ShopMore, Save More",
             "text_style": "home-hdr-subhead"
           }
         },
         "heading_MfhaYY": {
           "type": "heading",
           "settings": {
-            "heading": "Gear <strong>built </strong>for pros",
+            "heading": "ExploreEveryday Essentials and Trending Finds",
             "heading_size": "h1"
           }
         }
@@ -907,6 +907,7 @@
         "heading_MfhaYY"
       ],
       "settings": {
+        "image": "shopify://shop_images/Banner_Above_Footer_Variation_1.png",
         "custom_class": "gearBannerWrap",
         "image_overlay_opacity": 10,
         "image_height": "medium",
