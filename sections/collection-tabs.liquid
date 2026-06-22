@@ -99,7 +99,8 @@
     transition: background-color .3s ease;
   }
 
-  .collection-tabs-section-{{ section.id }} .collection-tab--built-in:hover .collection-icon {
+  .collection-tabs-section-{{ section.id }} .collection-tab--built-in:hover .collection-icon,
+  .collection-tabs-section-{{ section.id }} .collection-tab--built-in-icon:hover .collection-icon {
     background: rgba(255,255,255,.18);
   }
 
@@ -260,6 +261,10 @@
           {%- assign tab_title = block.settings.title_override | default: current_collection.title -%}
           {%- assign icon_source = block.settings.icon_source | default: 'collection_image' -%}
           {%- assign built_in_icon = block.settings.built_in_icon | default: 'grid' -%}
+          {%- assign custom_tab_icon = block.settings.custom_icon_image -%}
+          {%- if custom_tab_icon == blank -%}
+            {%- assign custom_tab_icon = block.settings.custom_icon -%}
+          {%- endif -%}
           {%- assign icon_size = block.settings.icon_size | default: 42 -%}
           {%- assign icon_size_mobile = icon_size | minus: 6 -%}
           {%- if icon_size_mobile < 32 -%}
@@ -283,24 +288,55 @@
             <span class="collection-icon">
               {%- case icon_source -%}
                 {%- when 'custom_image' -%}
-                  {%- if block.settings.custom_icon != blank -%}
-                    {%- assign custom_icon_alt = block.settings.custom_icon.alt | default: fallback_icon_alt -%}
+                  {%- if custom_tab_icon != blank -%}
+                    {%- assign custom_icon_alt = custom_tab_icon.alt | default: fallback_icon_alt -%}
                     {{
-                      block.settings.custom_icon
+                      custom_tab_icon
                       | image_url: width: 160
                       | image_tag:
                         alt: custom_icon_alt,
                         loading: 'lazy',
-                        class: 'collection-tab-icon-image'
+                        class: 'collection-tab-icon-image',
+                        width: icon_size,
+                        height: icon_size,
+                        sizes: '(max-width: 749px) 36px, 42px'
                     }}
+                  {%- else -%}
+                    {%- render 'collection-tab-icon',
+                      icon: 'grid',
+                      icon_class: 'collection-tab-icon-svg',
+                      icon_size: 24
+                    -%}
                   {%- endif -%}
 
-                {%- when 'built_in' -%}
+                {%- when 'built_in_icon', 'built_in' -%}
                   {%- render 'collection-tab-icon',
                     icon: built_in_icon,
                     icon_class: 'collection-tab-icon-svg',
                     icon_size: 24
                   -%}
+
+                {%- when 'collection_image', 'collection_image_fallback' -%}
+                  {%- if collection_icon != blank -%}
+                    {%- assign collection_icon_alt = collection_icon.alt | default: fallback_icon_alt -%}
+                    {{
+                      collection_icon
+                      | image_url: width: 160
+                      | image_tag:
+                        alt: collection_icon_alt,
+                        loading: 'lazy',
+                        class: 'collection-tab-icon-image',
+                        width: icon_size,
+                        height: icon_size,
+                        sizes: '(max-width: 749px) 36px, 42px'
+                    }}
+                  {%- else -%}
+                    {%- render 'collection-tab-icon',
+                      icon: built_in_icon,
+                      icon_class: 'collection-tab-icon-svg',
+                      icon_size: 24
+                    -%}
+                  {%- endif -%}
 
                 {%- else -%}
                   {%- if collection_icon != blank -%}
@@ -311,8 +347,17 @@
                       | image_tag:
                         alt: collection_icon_alt,
                         loading: 'lazy',
-                        class: 'collection-tab-icon-image'
+                        class: 'collection-tab-icon-image',
+                        width: icon_size,
+                        height: icon_size,
+                        sizes: '(max-width: 749px) 36px, 42px'
                     }}
+                  {%- else -%}
+                    {%- render 'collection-tab-icon',
+                      icon: built_in_icon,
+                      icon_class: 'collection-tab-icon-svg',
+                      icon_size: 24
+                    -%}
                   {%- endif -%}
               {%- endcase -%}
             </span>
@@ -463,7 +508,7 @@
               "label": "Custom image"
             },
             {
-              "value": "built_in",
+              "value": "built_in_icon",
               "label": "Built-in icon"
             },
             {
@@ -474,7 +519,7 @@
         },
         {
           "type": "image_picker",
-          "id": "custom_icon",
+          "id": "custom_icon_image",
           "label": "Custom icon image"
         },
         {
