@@ -417,7 +417,7 @@
         "featured_collection_AdtqYi": {
           "type": "featured_collection",
           "settings": {
-            "collection": "kitchen-dining"
+            "collection": "home-care"
           }
         },
         "featured_collection_z4rqMR": {
@@ -429,7 +429,7 @@
         "featured_collection_tRbCGz": {
           "type": "featured_collection",
           "settings": {
-            "collection": "automotive-essentials"
+            "collection": "frontpage"
           }
         }
       },
