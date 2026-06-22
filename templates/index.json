@@ -192,8 +192,8 @@
           "settings": {
             "collection": "trending-products",
             "title_override": "",
-            "icon_source": "collection_image",
-            "built_in_icon": "grid",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "flame",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -203,8 +203,8 @@
           "settings": {
             "collection": "frontpage",
             "title_override": "",
-            "icon_source": "collection_image",
-            "built_in_icon": "grid",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "baby",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -215,7 +215,7 @@
             "collection": "home-care",
             "title_override": "",
             "icon_source": "built_in",
-            "built_in_icon": "laptop",
+            "built_in_icon": "home",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -226,7 +226,7 @@
             "collection": "smart-wearables",
             "title_override": "",
             "icon_source": "collection_image",
-            "built_in_icon": "grid",
+            "built_in_icon": "watch",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -237,7 +237,7 @@
             "collection": "personal-care-grooming",
             "title_override": "",
             "icon_source": "collection_image",
-            "built_in_icon": "grid",
+            "built_in_icon": "smartphone",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -259,7 +259,7 @@
             "collection": "kitchen-dining",
             "title_override": "",
             "icon_source": "collection_image",
-            "built_in_icon": "grid",
+            "built_in_icon": "utensils",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -270,7 +270,7 @@
             "collection": "health-wellness",
             "title_override": "",
             "icon_source": "collection_image",
-            "built_in_icon": "grid",
+            "built_in_icon": "heart-pulse",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -281,7 +281,7 @@
             "collection": "fitness-sports",
             "title_override": "",
             "icon_source": "collection_image",
-            "built_in_icon": "grid",
+            "built_in_icon": "dumbbell",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -292,7 +292,7 @@
             "collection": "consumer-electronics",
             "title_override": "",
             "icon_source": "collection_image",
-            "built_in_icon": "grid",
+            "built_in_icon": "laptop",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -303,7 +303,7 @@
             "collection": "automotive-essentials",
             "title_override": "",
             "icon_source": "collection_image",
-            "built_in_icon": "grid",
+            "built_in_icon": "car",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -314,7 +314,7 @@
             "collection": "audio-sound",
             "title_override": "",
             "icon_source": "collection_image",
-            "built_in_icon": "grid",
+            "built_in_icon": "headphones",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
