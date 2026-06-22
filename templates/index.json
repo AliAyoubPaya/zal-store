@@ -967,9 +967,9 @@
         "collapsible_row_bTwR38": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "4. What are shipping costs and do you ship internationally?",
+            "heading": "4. How long does delivery take?",
             "icon": "none",
-            "row_content": "<p>While, at this time, domestic shipping is free of charge on any online order, we do not ship ProSwag products internationally. Please reach out to us at info@proswag.com if you need special accommodations. Additional fees may apply when shipping to Alaska, and Hawaii.</p>",
+            "row_content": "<p>Delivery times may vary depending on your location and product availability. Most orders<br/>are delivered within a few business days after confirmation.</p>",
             "page": ""
           }
         },
