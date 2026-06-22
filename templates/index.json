@@ -976,9 +976,9 @@
         "collapsible_row_y7R4it": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "6. How do I launder ProSwag garments?",
+            "heading": "6.  Can I cancel or modify my order?",
             "icon": "none",
-            "row_content": "<p>We suggest our shirts be machine washed in cold water and tumble dried on low to help protect the integrity of the material and the customization.</p><p>Please note that garments with DTF (Direct-to-Fabric) customization should not be dry cleaned. The chemicals and heat used in the dry cleaning process can cause the DTF print to peel or deteriorate, damaging the design and garment.</p>",
+            "row_content": "<p>If your order has not yet been processed or shipped, you may be able to request a<br/>cancellation or modification. Please contact our support team as soon as<br/>possible for assistance.</p>",
             "page": ""
           }
         }
