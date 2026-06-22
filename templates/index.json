@@ -958,9 +958,9 @@
         "collapsible_row_JdV8GX": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "3. What if I need to return or exchange an item?",
+            "heading": "3. What if I receive a damaged or incorrect item?",
             "icon": "none",
-            "row_content": "<p>Online purchases can be returned within 30 days of the purchase date. For free returns, apparel must be returned in its original condition with all tags still attached. You may return items for an exchange or full refund, less the cost of shipping.</p><p>Any item listed as \"clearance\", \"discontinued\", \"limited stock\", or \"final sale\" is not eligible for return, and all sales are final. Clearance items may have limited availability, sizes, or color options.</p><p>Any item that has been customized to order is not eligible for return, and all sales are final.</p><p>If you need assistance with a return, please contact us at info@proswag.com, and we'll be happy to help.</p>",
+            "row_content": "<p>If you receive a damaged, defective, or incorrect item, please contact our customer support team within <strong>24  hours of delivery</strong> with your order number and clear photos of the item received. We will review your request and arrange a replacement, exchange, or refund as applicable. Your satisfaction is our priority, and we will work to resolve the issue as quickly as possible.<br/><br/></p>",
             "page": ""
           }
         },
