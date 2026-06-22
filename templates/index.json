@@ -919,15 +919,15 @@
         "buttons_E9mAah"
       ],
       "settings": {
-        "image": "shopify://shop_images/Banner_Above_Footer_Variation_1.png",
+        "image": "shopify://shop_images/Footerbanner-ezgif.com-jpg-to-webp-converter.webp",
         "custom_class": "gearBannerWrap",
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 10,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "scheme-6bb7c0a2-3c4e-45e5-a377-4fdae40c7505",
-        "image_behavior": "fixed",
+        "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
