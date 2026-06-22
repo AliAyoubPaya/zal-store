@@ -32,7 +32,9 @@
         },
         "slide_7Aa3V6": {
           "type": "slide",
+          "disabled": true,
           "settings": {
+            "image": "shopify://shop_images/Home_Page_Hero_Banner_2.png",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -50,6 +52,7 @@
         "slide_m4Lkmz": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Home_Page_Hero_Banner_2.png",
             "heading": "Bold. <strong>Brave. </strong><em>Relentless.</em>",
             "heading_size": "h1",
             "subheading": "Clothing and Gear Built for PROs",
@@ -59,7 +62,7 @@
             "box_align": "middle-center",
             "show_text_box": false,
             "text_alignment": "center",
-            "image_overlay_opacity": 0,
+            "image_overlay_opacity": 30,
             "color_scheme": "scheme-1",
             "text_alignment_mobile": "center"
           }
