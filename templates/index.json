@@ -921,7 +921,7 @@
       "settings": {
         "image": "shopify://shop_images/Banner_Above_Footer_Variation_1.png",
         "custom_class": "gearBannerWrap",
-        "image_overlay_opacity": 10,
+        "image_overlay_opacity": 40,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
