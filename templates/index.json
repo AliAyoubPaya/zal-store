@@ -1041,7 +1041,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "height": "adapt",
+        "height": "small",
         "desktop_image_width": "medium",
         "layout": "image_first",
         "desktop_content_position": "top",
