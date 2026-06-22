@@ -1,1 +1,73 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"footer":{"type":"footer","blocks":{"link_list_pGiwkf":{"type":"link_list","settings":{"heading":"Shop","menu":"footer"}},"link_list_dzmWcY":{"type":"link_list","settings":{"heading":"Company","menu":"footer"}},"link_list_ecBDij":{"type":"link_list","settings":{"heading":"Help","menu":"footer"}},"image_ggm6Tf":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Footer_LOGO-01.png","image_width":330,"alignment":"right"}}},"block_order":["link_list_pGiwkf","link_list_dzmWcY","link_list_ecBDij","image_ggm6Tf"],"custom_css":[],"settings":{"color_scheme":"accent-1","newsletter_enable":true,"newsletter_heading":"Get exclusive swag offers!","enable_follow_on_shop":false,"show_social":true,"enable_country_selector":true,"enable_language_selector":true,"payment_enable":true,"show_policy":true,"margin_top":0,"padding_top":64,"padding_bottom":32}}},"order":["footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "link_list_pGiwkf": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "footer"
+          }
+        },
+        "link_list_dzmWcY": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "footer"
+          }
+        },
+        "link_list_ecBDij": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Help",
+            "menu": "footer"
+          }
+        },
+        "image_ggm6Tf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Footer_LOGO-01.png",
+            "image_width": 330,
+            "alignment": "right"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_pGiwkf",
+        "link_list_dzmWcY",
+        "link_list_ecBDij",
+        "image_ggm6Tf"
+      ],
+      "custom_css": [],
+      "settings": {
+        "color_scheme": "accent-1",
+        "newsletter_enable": true,
+        "newsletter_heading": "UnlockExclusive Offers",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 64,
+        "padding_bottom": 32
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
