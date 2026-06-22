@@ -900,11 +900,23 @@
             "heading": "ExploreEveryday Essentials and Trending Finds",
             "heading_size": "h1"
           }
+        },
+        "buttons_E9mAah": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shope Now",
+            "button_link_1": "shopify://collections",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
         }
       },
       "block_order": [
         "text_iCQgg7",
-        "heading_MfhaYY"
+        "heading_MfhaYY",
+        "buttons_E9mAah"
       ],
       "settings": {
         "image": "shopify://shop_images/Banner_Above_Footer_Variation_1.png",
@@ -914,7 +926,7 @@
         "desktop_content_position": "middle-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
-        "color_scheme": "scheme-489d8fb5-90b8-48be-904d-2e043835ded4",
+        "color_scheme": "scheme-6bb7c0a2-3c4e-45e5-a377-4fdae40c7505",
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
