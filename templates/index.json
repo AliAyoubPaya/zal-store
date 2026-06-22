@@ -362,13 +362,13 @@
         "featured_collection_tRRWnd": {
           "type": "featured_collection",
           "settings": {
-            "collection": "frontpage"
+            "collection": "home-care"
           }
         },
         "featured_collection_eib6yn": {
           "type": "featured_collection",
           "settings": {
-            "collection": "frontpage"
+            "collection": "personal-care-grooming"
           }
         }
       },
