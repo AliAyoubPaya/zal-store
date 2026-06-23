@@ -381,7 +381,7 @@
       "settings": {
         "title": "Top <strong>Categories</strong>",
         "section_width": "container",
-        "custom_class": "featureProductWrap",
+        "custom_class": "featureProductWrap pageContainer",
         "heading_size": "h2",
         "image_ratio": "square",
         "columns_desktop": 3,
