@@ -1481,10 +1481,10 @@ quick-add-modal .product__title h2 {
       padding-left: 32px;
       padding-right: 32px;
     }
-    .featureProductWrap .collection-list__item {
+    /* .featureProductWrap .collection-list__item {
         width: 33.33% !important;
         max-width: 33.33% !important;
-    }
+    } */
   .iconsWrap .slider--desktop {
     display: flex !important;
     flex-wrap: nowrap !important;
