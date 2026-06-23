@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 
+.pageContainer {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
 .button--primary {
     background: #F36802;
     border-radius: 6px;
@@ -1460,9 +1470,17 @@ quick-add-modal .product__title h2 {
         font-size: 8em;
         padding: 0 100px;
     }
+    .pageContainer {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
 }
 
 @media (min-width: 990px) {
+     .pageContainer {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
     .featureProductWrap .collection-list__item {
         width: 33.33% !important;
         max-width: 33.33% !important;
@@ -1683,6 +1701,10 @@ media-gallery .slider-counter {
     flex-direction: row;
     gap: 1rem;
   }
+  .pageContainer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
 
   /* The main image slider */
   media-gallery .slider-mobile-gutter {
