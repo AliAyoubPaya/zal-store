@@ -326,9 +326,9 @@ html.js {
     display: none;
 }
 
-.featureProductWrap .collection-list {
+/* .featureProductWrap .collection-list {
     gap: 0;
-}
+} */
 
 .featureProductWrap .card__information a {
     color: #fff;
@@ -345,10 +345,10 @@ html.js {
     border-color: #6F7B5E;
 }
 
-.featureProductWrap {
+/* .featureProductWrap {
     padding: 0;
     max-width: 100%;
-}
+} */
 
 /* gear banner css */
 
