@@ -510,7 +510,7 @@
         "custom_class": "featureProductWrap",
         "heading_size": "h2",
         "image_ratio": "square",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "tablet_columns": "2",
         "color_scheme": "",
         "show_view_all": false,
