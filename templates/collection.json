@@ -9,70 +9,6 @@
  */
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
-      "settings": {
-        "show_collection_description": true
-      }
-    },
-    "product-grid": {
-      "type": "main-collection-product-grid",
-      "settings": {
-        "enable_pagination": false,
-        "products_per_page": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "enable_filtering": true,
-        "filter_type": "horizontal",
-        "enable_sorting": true,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 68
-      }
-    },
-    "image_banner_4V7rLk": {
-      "type": "image-banner",
-      "blocks": {
-        "text_iQFdPp": {
-          "type": "text",
-          "settings": {
-            "text": "stretched - uv protection",
-            "text_style": "home-hdr-subhead"
-          }
-        },
-        "heading_DThnU6": {
-          "type": "heading",
-          "settings": {
-            "heading": "Gear <strong>built </strong>for pros",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "text_iQFdPp",
-        "heading_DThnU6"
-      ],
-      "disabled": true,
-      "settings": {
-        "custom_class": "gearBannerWrap",
-        "image_overlay_opacity": 10,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-489d8fb5-90b8-48be-904d-2e043835ded4",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
     "collection_tabs_7deXxC": {
       "type": "collection-tabs",
       "blocks": {
@@ -226,14 +162,78 @@
         "tab_gap": 12,
         "enable_swipe_hint": true,
         "swipe_hint_text": "Swipe Categories",
-        "custom_class": ""
+        "custom_class": "featureProductWrap"
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "enable_pagination": false,
+        "products_per_page": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 68
+      }
+    },
+    "image_banner_4V7rLk": {
+      "type": "image-banner",
+      "blocks": {
+        "text_iQFdPp": {
+          "type": "text",
+          "settings": {
+            "text": "stretched - uv protection",
+            "text_style": "home-hdr-subhead"
+          }
+        },
+        "heading_DThnU6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gear <strong>built </strong>for pros",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "text_iQFdPp",
+        "heading_DThnU6"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_class": "gearBannerWrap",
+        "image_overlay_opacity": 10,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-489d8fb5-90b8-48be-904d-2e043835ded4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     }
   },
   "order": [
+    "collection_tabs_7deXxC",
     "banner",
     "product-grid",
-    "image_banner_4V7rLk",
-    "collection_tabs_7deXxC"
+    "image_banner_4V7rLk"
   ]
 }
