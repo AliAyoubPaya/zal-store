@@ -915,8 +915,8 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/ChatGPT_Image_Jun_22_2026_05_01_41_PM.png",
-        "custom_class": "featureProductWrap",
+        "image": "shopify://shop_images/QuickPushPopGameConsole_3.webp",
+        "custom_class": "",
         "height": "small",
         "desktop_image_width": "small",
         "layout": "image_first",
