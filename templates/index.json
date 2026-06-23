@@ -119,13 +119,65 @@
       }
     },
     "custom_liquid_pWbYwb": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
+      "type": "usp-benefits-cards",
+      "blocks": {
+        "benefit_secure_payments": {
+          "type": "benefit",
+          "settings": {
+            "title": "Secure Payments",
+            "description": "Safe & secure checkout via SSL",
+            "link": "",
+            "accessibility_label": ""
+          }
+        },
+        "benefit_fast_shipping": {
+          "type": "benefit",
+          "settings": {
+            "title": "Free & Fast Shipping",
+            "description": "World-wide free shipping",
+            "link": "",
+            "accessibility_label": ""
+          }
+        },
+        "benefit_easy_returns": {
+          "type": "benefit",
+          "settings": {
+            "title": "Hassle Free Return",
+            "description": "30 days to return your products",
+            "link": "",
+            "accessibility_label": ""
+          }
+        },
+        "benefit_customer_support": {
+          "type": "benefit",
+          "settings": {
+            "title": "Customer Support",
+            "description": "Friendly support when you need it",
+            "link": "",
+            "accessibility_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit_secure_payments",
+        "benefit_fast_shipping",
+        "benefit_easy_returns",
+        "benefit_customer_support"
+      ],
+      "name": "USP Benefits Cards",
       "settings": {
-        "custom_liquid": "<div class=\"usp-marquee-wrapper\">\n  <div class=\"usp-marquee-track\">\n\n    <!-- Box 1 -->\n    <div class=\"usp-box\">\n      <div class=\"usp-icon\">🚚</div>\n      <div class=\"usp-content\">\n        <h4>Free & Fast Shipping</h4>\n        <p>World-wide free shipping</p>\n      </div>\n    </div>\n\n    <!-- Box 2 -->\n    <div class=\"usp-box\">\n      <div class=\"usp-icon\">💰</div>\n      <div class=\"usp-content\">\n        <h4>Hassle Free Return</h4>\n        <p>30 days to return your products</p>\n      </div>\n    </div>\n\n    <!-- Box 3 -->\n    <div class=\"usp-box\">\n      <div class=\"usp-icon\">🔒</div>\n      <div class=\"usp-content\">\n        <h4>Secure Payments</h4>\n        <p>Safe & secure checkout via SSL</p>\n      </div>\n    </div>\n\n    <!-- Duplicate for Infinite Loop -->\n\n    <div class=\"usp-box\">\n      <div class=\"usp-icon\">🚚</div>\n      <div class=\"usp-content\">\n        <h4>Free & Fast Shipping</h4>\n        <p>World-wide free shipping</p>\n      </div>\n    </div>\n\n    <div class=\"usp-box\">\n      <div class=\"usp-icon\">💰</div>\n      <div class=\"usp-content\">\n        <h4>Hassle Free Return</h4>\n        <p>30 days to return your products</p>\n      </div>\n    </div>\n\n    <div class=\"usp-box\">\n      <div class=\"usp-icon\">🔒</div>\n      <div class=\"usp-content\">\n        <h4>Secure Payments</h4>\n        <p>Safe & secure checkout via SSL</p>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<style>\n\n.usp-marquee-wrapper{\n  width:100%;\n  overflow:hidden;\n  /*background:#f8f8f8;*/\n  padding:15px 0;\n  position:relative;\n}\n\n.usp-marquee-track{\n  display:flex;\n  width:max-content;\n  gap:25px;\n  animation: usp-scroll 25s linear infinite;\n}\n\n.usp-marquee-wrapper:hover .usp-marquee-track{\n  animation-play-state:paused;\n}\n\n.usp-box{\n  display:flex;\n  align-items:center;\n  gap:15px;\n  background:#fff;\n  border-radius:12px;\n  padding:15px 22px;\n  min-width:360px;\n  box-shadow:0 2px 10px rgba(0,0,0,.05);\n  flex-shrink:0;\n}\n\n.usp-icon{\n  font-size:34px;\n  line-height:1;\n}\n\n.usp-content h4{\n  margin:0;\n  font-size:18px;\n  font-weight:600;\n  line-height:1.3;\n}\n\n.usp-content p{\n  margin:4px 0 0;\n  font-size:14px;\n  color:#666;\n  line-height:1.4;\n}\n\n@keyframes usp-scroll{\n  0%{\n    transform:translateX(0);\n  }\n  100%{\n    transform:translateX(-50%);\n  }\n}\n\n/* Tablet */\n\n@media screen and (max-width: 990px){\n\n  .usp-box{\n    min-width:300px;\n    padding:14px 18px;\n  }\n\n  .usp-icon{\n    font-size:30px;\n  }\n\n  .usp-content h4{\n    font-size:16px;\n  }\n\n  .usp-content p{\n    font-size:13px;\n  }\n\n}\n\n/* Mobile */\n\n@media screen and (max-width: 749px){\n\n  .usp-marquee-wrapper{\n    padding:10px 0;\n  }\n\n  .usp-marquee-track{\n    gap:15px;\n    animation-duration:18s;\n  }\n\n  .usp-box{\n    min-width:260px;\n    padding:12px 16px;\n    border-radius:10px;\n  }\n\n  .usp-icon{\n    font-size:26px;\n  }\n\n  .usp-content h4{\n    font-size:14px;\n  }\n\n  .usp-content p{\n    font-size:12px;\n  }\n\n}\n\n</style>",
+        "show_heading": false,
+        "heading": "Benefits",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "desktop_columns": "4",
+        "tablet_columns": "2",
+        "mobile_columns": "1",
+        "card_gap": 24,
         "color_scheme": "background-1",
-        "padding_top": 52,
-        "padding_bottom": 0
+        "custom_class": "",
+        "padding_top": 30,
+        "padding_bottom": 30
       }
     },
     "multicolumn_U9wF4t": {

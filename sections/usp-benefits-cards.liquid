@@ -1,0 +1,483 @@
+{%- style -%}
+  .usp-benefits-cards-{{ section.id }} {
+    --usp-benefits-columns-desktop: {{ section.settings.desktop_columns }};
+    --usp-benefits-columns-tablet: {{ section.settings.tablet_columns }};
+    --usp-benefits-columns-mobile: {{ section.settings.mobile_columns }};
+    --usp-benefits-card-gap: {{ section.settings.card_gap }}px;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .pageContainer {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-cards__inner {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-cards__heading {
+    margin: 0 0 22px;
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--usp-benefits-columns-desktop), minmax(0, 1fr));
+    gap: var(--usp-benefits-card-gap);
+    align-items: stretch;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-card {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    min-height: 80px;
+    gap: 14px;
+    padding: 16px 20px;
+    border: 1px solid rgba(18, 18, 18, 0.06);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    color: #151515;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+  .usp-benefits-cards-{{ section.id }} a.usp-benefits-card {
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  .usp-benefits-cards-{{ section.id }} a.usp-benefits-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(243, 104, 2, 0.32);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.09);
+  }
+
+  .usp-benefits-cards-{{ section.id }} a.usp-benefits-card:focus-visible {
+    outline: 2px solid #F36802;
+    outline-offset: 3px;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-card__icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border-radius: 12px;
+    background: #f6f6f6;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-card__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-card__placeholder {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    color: #b7b7b7;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-card__placeholder svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-card__content {
+    min-width: 0;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-card__title {
+    display: block;
+    margin: 0;
+    color: #151515;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .usp-benefits-cards-{{ section.id }} .usp-benefits-card__description {
+    display: block;
+    margin: 4px 0 0;
+    color: rgba(21, 21, 21, 0.68);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  @media screen and (min-width: 750px) {
+    .usp-benefits-cards-{{ section.id }} .pageContainer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .usp-benefits-cards-{{ section.id }} .usp-benefits-cards__inner {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .usp-benefits-cards-{{ section.id }} .pageContainer {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .usp-benefits-cards-{{ section.id }} .pageContainer {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .usp-benefits-cards-{{ section.id }} .usp-benefits-cards__grid {
+      grid-template-columns: repeat(var(--usp-benefits-columns-tablet), minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .usp-benefits-cards-{{ section.id }} .usp-benefits-cards__grid {
+      grid-template-columns: repeat(var(--usp-benefits-columns-mobile), minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .usp-benefits-cards-{{ section.id }} .usp-benefits-card {
+      min-height: 72px;
+      gap: 12px;
+      padding: 14px 16px;
+    }
+
+    .usp-benefits-cards-{{ section.id }} .usp-benefits-card__icon {
+      width: 38px;
+      height: 38px;
+      flex-basis: 38px;
+      border-radius: 10px;
+    }
+
+    .usp-benefits-cards-{{ section.id }} .usp-benefits-card__title {
+      font-size: 15px;
+    }
+
+    .usp-benefits-cards-{{ section.id }} .usp-benefits-card__description {
+      font-size: 12px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="usp-benefits-cards usp-benefits-cards-{{ section.id }} {{ section.settings.custom_class }}">
+  <div class="pageContainer color-{{ section.settings.color_scheme }} gradient">
+    <div class="usp-benefits-cards__inner">
+      {%- if section.settings.show_heading and section.settings.heading != blank -%}
+        <h2 class="usp-benefits-cards__heading inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.heading }}
+        </h2>
+      {%- endif -%}
+
+      <div class="usp-benefits-cards__grid" role="list">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign card_title = block.settings.title | default: 'Benefit'
+            assign icon_alt = block.settings.icon_image.alt | default: card_title
+            assign card_label = block.settings.accessibility_label | default: card_title
+          -%}
+
+          {%- capture card_content -%}
+            <span class="usp-benefits-card__icon">
+              {%- if block.settings.icon_image != blank -%}
+                {{
+                  block.settings.icon_image
+                  | image_url: width: 96
+                  | image_tag:
+                    alt: icon_alt,
+                    loading: 'lazy',
+                    class: 'usp-benefits-card__image',
+                    widths: '44, 88, 132',
+                    sizes: '(max-width: 749px) 38px, 44px',
+                    width: 44,
+                    height: 44
+                }}
+              {%- else -%}
+                <span class="usp-benefits-card__placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M8 12.5 10.6 15 16.5 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              {%- endif -%}
+            </span>
+
+            <span class="usp-benefits-card__content">
+              <span class="usp-benefits-card__title">{{ card_title | escape }}</span>
+              {%- if block.settings.description != blank -%}
+                <span class="usp-benefits-card__description">{{ block.settings.description | escape }}</span>
+              {%- endif -%}
+            </span>
+          {%- endcapture -%}
+
+          {%- if block.settings.link != blank -%}
+            <a
+              href="{{ block.settings.link }}"
+              class="usp-benefits-card"
+              role="listitem"
+              aria-label="{{ card_label | escape }}"
+              {{ block.shopify_attributes }}
+            >
+              {{ card_content }}
+            </a>
+          {%- else -%}
+            <div
+              class="usp-benefits-card"
+              role="listitem"
+              {{ block.shopify_attributes }}
+            >
+              {{ card_content }}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "USP Benefits Cards",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show heading",
+      "default": false
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Benefits"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "default": "4",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "tablet_columns",
+      "label": "Tablet columns",
+      "default": "2",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 8,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "label": "Card gap",
+      "default": 24
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class (optional)",
+      "info": "Enter a unique class name"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Secure Payments"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Safe & secure checkout via SSL"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Optional link"
+        },
+        {
+          "type": "text",
+          "id": "accessibility_label",
+          "label": "Accessibility label",
+          "info": "Used when the card has a link. Leave blank to use the card title."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "USP Benefits Cards",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Secure Payments",
+            "description": "Safe & secure checkout via SSL"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Free & Fast Shipping",
+            "description": "World-wide free shipping"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Hassle Free Return",
+            "description": "30 days to return your products"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Customer Support",
+            "description": "Friendly support when you need it"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
