@@ -15,10 +15,19 @@
     assign mobile_padding_top = 0
     assign mobile_padding_bottom = 0
   endif
+
+  assign tablet_layout = section.settings.tablet_layout | default: 'horizontal_swipe'
+  assign mobile_layout = section.settings.mobile_layout | default: 'horizontal_swipe'
+  assign tab_gap = section.settings.tab_gap | default: 12
+  assign mobile_tab_padding = section.settings.mobile_tab_padding | default: 14
+  assign mobile_icon_size = section.settings.mobile_icon_size | default: 36
 -%}
 
 {%- style -%}
   .collection-tabs-section-{{ section.id }} {
+    --collection-tabs-gap: {{ tab_gap }}px;
+    --collection-tabs-mobile-padding: {{ mobile_tab_padding }}px;
+    --collection-tabs-mobile-icon-size: {{ mobile_icon_size }}px;
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
@@ -54,7 +63,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: var(--collection-tabs-gap);
     flex-wrap: wrap;
   }
 
@@ -72,6 +81,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
     color: #111;
     box-sizing: border-box;
+    max-width: 100%;
   }
 
   .collection-tabs-section-{{ section.id }} .collection-tab:hover {
@@ -130,6 +140,7 @@
     font-weight: 600;
     line-height: 1;
     white-space: nowrap;
+    min-width: 0;
     transition: color .3s ease;
   }
 
@@ -158,8 +169,8 @@
     }
   }
 
-  @media screen and (max-width: 989px) {
-    .collection-tabs-section-{{ section.id }} .collection-tabs-wrapper {
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .collection-tabs-section-{{ section.id }}.collection-tabs-section--tablet-horizontal_swipe .collection-tabs-wrapper {
       justify-content: flex-start;
       overflow-x: auto;
       flex-wrap: nowrap;
@@ -171,12 +182,25 @@
       padding: 2px 2px 8px;
     }
 
-    .collection-tabs-section-{{ section.id }} .collection-tabs-wrapper::-webkit-scrollbar {
+    .collection-tabs-section-{{ section.id }}.collection-tabs-section--tablet-horizontal_swipe .collection-tabs-wrapper::-webkit-scrollbar {
       display: none;
     }
 
-    .collection-tabs-section-{{ section.id }} .collection-tab {
+    .collection-tabs-section-{{ section.id }}.collection-tabs-section--tablet-horizontal_swipe .collection-tab {
       flex: 0 0 auto;
+      max-width: min(290px, calc(100vw - 48px));
+    }
+
+    .collection-tabs-section-{{ section.id }}.collection-tabs-section--tablet-wrap .collection-tabs-wrapper {
+      justify-content: center;
+      overflow: visible;
+      flex-wrap: wrap;
+      padding: 2px 0 8px;
+    }
+
+    .collection-tabs-section-{{ section.id }} .collection-tab__title {
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
   }
 
@@ -194,24 +218,55 @@
       margin-bottom: 42px !important;
     }
 
+    .collection-tabs-section-{{ section.id }}.collection-tabs-section--mobile-horizontal_swipe .collection-tabs-wrapper {
+      justify-content: flex-start;
+      overflow-x: auto;
+      overflow-y: hidden;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-behavior: smooth;
+      scroll-padding-inline: 16px;
+      -webkit-overflow-scrolling: touch;
+      padding: 2px 16px 8px 2px;
+    }
+
+    .collection-tabs-section-{{ section.id }}.collection-tabs-section--mobile-horizontal_swipe .collection-tabs-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .collection-tabs-section-{{ section.id }}.collection-tabs-section--mobile-horizontal_swipe .collection-tab {
+      flex: 0 0 auto;
+    }
+
+    .collection-tabs-section-{{ section.id }}.collection-tabs-section--mobile-wrap .collection-tabs-wrapper {
+      justify-content: center;
+      overflow: visible;
+      flex-wrap: wrap;
+      padding: 2px 0 8px;
+    }
+
     .collection-tabs-section-{{ section.id }} .collection-tab {
       min-height: 56px;
-      padding: 10px 14px;
+      padding: 10px var(--collection-tabs-mobile-padding);
       gap: 9px;
+      max-width: calc(100vw - 32px);
     }
 
     .collection-tabs-section-{{ section.id }} .collection-icon {
-      width: var(--collection-tab-icon-size-mobile, 36px);
-      height: var(--collection-tab-icon-size-mobile, 36px);
-      flex-basis: var(--collection-tab-icon-size-mobile, 36px);
+      width: var(--collection-tabs-mobile-icon-size, var(--collection-tab-icon-size-mobile, 36px));
+      height: var(--collection-tabs-mobile-icon-size, var(--collection-tab-icon-size-mobile, 36px));
+      flex-basis: var(--collection-tabs-mobile-icon-size, var(--collection-tab-icon-size-mobile, 36px));
     }
 
     .collection-tabs-section-{{ section.id }} .collection-tab__title {
       font-size: 12px;
       line-height: 1.15;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
-    .collection-tabs-section-{{ section.id }} .collection-scroll-hint {
+    .collection-tabs-section-{{ section.id }}.collection-tabs-section--mobile-horizontal_swipe .collection-scroll-hint {
       display: block;
       text-align: center;
       margin-top: 10px;
@@ -240,7 +295,7 @@
   }
 {%- endstyle -%}
 
-<section class="collection-tabs-section collection-tabs-section-{{ section.id }}">
+<section class="collection-tabs-section collection-tabs-section-{{ section.id }} collection-tabs-section--tablet-{{ tablet_layout }} collection-tabs-section--mobile-{{ mobile_layout }}">
   <div class="{{ section.settings.custom_class }} collection-tabs-container {{ section_width_class }}">
     {%- if section.settings.title != blank -%}
       <div class="collection-tabs-heading-wrapper">
@@ -266,10 +321,6 @@
             {%- assign custom_tab_icon = block.settings.custom_icon -%}
           {%- endif -%}
           {%- assign icon_size = block.settings.icon_size | default: 42 -%}
-          {%- assign icon_size_mobile = icon_size | minus: 6 -%}
-          {%- if icon_size_mobile < 32 -%}
-            {%- assign icon_size_mobile = 32 -%}
-          {%- endif -%}
           {%- assign icon_background = block.settings.icon_background_color | default: '#f5f5f5' -%}
           {%- assign collection_icon = current_collection.featured_image -%}
           {%- if collection_icon == blank and current_collection.image != blank -%}
@@ -282,7 +333,7 @@
             href="{{ current_collection.url }}"
             class="collection-tab collection-tab--{{ icon_source | replace: '_', '-' }}"
             aria-label="{{ tab_aria_label | strip | escape }}"
-            style="--collection-tab-icon-size: {{ icon_size }}px; --collection-tab-icon-size-mobile: {{ icon_size_mobile }}px; --collection-tab-icon-background: {{ icon_background }};"
+            style="--collection-tab-icon-size: {{ icon_size }}px; --collection-tab-icon-size-mobile: {{ mobile_icon_size }}px; --collection-tab-icon-background: {{ icon_background }};"
             {{ block.shopify_attributes }}
           >
             <span class="collection-icon">
@@ -461,6 +512,80 @@
           "label": "None"
         }
       ]
+    },
+    {
+      "type": "header",
+      "content": "Tablet layout"
+    },
+    {
+      "type": "select",
+      "id": "tablet_layout",
+      "label": "Tablet layout",
+      "default": "horizontal_swipe",
+      "options": [
+        {
+          "value": "wrap",
+          "label": "Wrap"
+        },
+        {
+          "value": "horizontal_swipe",
+          "label": "Horizontal swipe"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "default": "horizontal_swipe",
+      "options": [
+        {
+          "value": "wrap",
+          "label": "Wrap"
+        },
+        {
+          "value": "horizontal_swipe",
+          "label": "Horizontal swipe"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "mobile_tab_padding",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile tab horizontal padding",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "min": 28,
+      "max": 44,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile icon size",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "tab_gap",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Tab gap",
+      "default": 12
     },
     {
       "type": "checkbox",

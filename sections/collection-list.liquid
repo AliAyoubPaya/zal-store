@@ -2,7 +2,33 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+assign tablet_columns = section.settings.tablet_columns | default: 2
+assign mobile_columns = section.settings.columns_mobile | default: 1
+assign responsive_grid_gap = section.settings.grid_gap | default: 16
+assign mobile_image_ratio = section.settings.mobile_image_ratio | default: 'match'
+assign mobile_ratio_percent = ''
+
+case mobile_image_ratio
+when 'square'
+assign mobile_ratio_percent = '100%'
+when 'portrait'
+assign mobile_ratio_percent = '125%'
+when 'landscape'
+assign mobile_ratio_percent = '66.6667%'
+endcase
+-%}
+
 {%- style -%}
+.section-{{ section.id }} {
+--collection-list-tablet-columns: {{ tablet_columns }};
+--collection-list-mobile-columns: {{ mobile_columns }};
+--collection-list-responsive-gap: {{ responsive_grid_gap }}px;
+{%- if mobile_ratio_percent != blank %}
+--collection-list-mobile-ratio-percent: {{ mobile_ratio_percent }};
+{%- endif %}
+}
+
 .section-{{ section.id }}-padding {
 padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
 padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -22,6 +48,114 @@ box-sizing: border-box;
 /* Full-width layout still keeps responsive side spacing */
 .section-{{ section.id }} .pageContainer--full-width {
 max-width: none;
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+.section-{{ section.id }} .collection-list:not(.slider) {
+display: grid;
+grid-template-columns: repeat(var(--collection-list-tablet-columns), minmax(0, 1fr));
+gap: var(--collection-list-responsive-gap);
+width: 100%;
+margin-bottom: 0;
+padding-left: 0;
+padding-right: 0;
+}
+
+.section-{{ section.id }} .collection-list,
+.section-{{ section.id }} .collection-list__item,
+.section-{{ section.id }} .card-wrapper,
+.section-{{ section.id }} .card {
+box-sizing: border-box;
+min-width: 0;
+}
+
+.section-{{ section.id }} .collection-list:not(.slider) > .collection-list__item {
+width: 100%;
+max-width: none;
+min-width: 0;
+}
+
+.section-{{ section.id }} .card,
+.section-{{ section.id }} .card-wrapper {
+height: 100%;
+}
+
+.section-{{ section.id }} .featureProductWrap .card__content,
+.section-{{ section.id }} .card__content {
+max-width: calc(100% - 16px);
+}
+
+.section-{{ section.id }} .card__information {
+min-width: 0;
+}
+
+.section-{{ section.id }} .card__heading a {
+max-width: 100%;
+white-space: normal;
+overflow-wrap: anywhere;
+text-align: center;
+box-sizing: border-box;
+line-height: 1.2;
+padding-left: clamp(16px, 3vw, 30px);
+padding-right: clamp(16px, 3vw, 30px);
+}
+}
+
+@media screen and (max-width: 749px) {
+.section-{{ section.id }} .collection-list:not(.slider) {
+display: grid;
+grid-template-columns: repeat(var(--collection-list-mobile-columns), minmax(0, 1fr));
+gap: var(--collection-list-responsive-gap);
+width: 100%;
+margin-bottom: 0;
+padding-left: 0;
+padding-right: 0;
+}
+
+.section-{{ section.id }} .collection-list,
+.section-{{ section.id }} .collection-list__item,
+.section-{{ section.id }} .card-wrapper,
+.section-{{ section.id }} .card {
+box-sizing: border-box;
+min-width: 0;
+}
+
+.section-{{ section.id }} .collection-list:not(.slider) > .collection-list__item {
+width: 100%;
+max-width: none;
+min-width: 0;
+}
+
+.section-{{ section.id }} .card,
+.section-{{ section.id }} .card-wrapper {
+height: 100%;
+}
+
+.section-{{ section.id }} .card__content {
+max-width: calc(100% - 12px);
+}
+
+.section-{{ section.id }} .card__information {
+min-width: 0;
+}
+
+.section-{{ section.id }} .card__heading a {
+max-width: 100%;
+white-space: normal;
+overflow-wrap: anywhere;
+text-align: center;
+box-sizing: border-box;
+line-height: 1.2;
+padding: 8px clamp(10px, 4vw, 22px);
+font-size: clamp(10px, 2.8vw, 13px);
+}
+
+{%- if mobile_ratio_percent != blank %}
+.section-{{ section.id }} .collection-list .card.ratio,
+.section-{{ section.id }} .collection-list .card__inner.ratio {
+--ratio-percent: var(--collection-list-mobile-ratio-percent);
+}
+{%- endif %}
 }
 
 @media screen and (min-width: 750px) {
@@ -53,7 +187,7 @@ padding-right: 48px;
 {%- endstyle -%}
 
 {%- liquid
-assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+assign columns_mobile_int = mobile_columns | plus: 0
 assign show_mobile_slider = false
 
 if section.settings.swipe_on_mobile and section.blocks.size > columns_mobile_int
@@ -282,6 +416,34 @@ endif
 "label": "t:sections.collection-list.settings.columns_desktop.label"
 },
 {
+"type": "header",
+"content": "Tablet layout"
+},
+{
+"type": "select",
+"id": "tablet_columns",
+"label": "Tablet columns",
+"default": "2",
+"options": [
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+},
+{
+"value": "3",
+"label": "3"
+},
+{
+"value": "4",
+"label": "4"
+}
+]
+},
+{
 "type": "color_scheme",
 "id": "color_scheme",
 "label": "t:sections.all.colors.label",
@@ -319,6 +481,44 @@ endif
 "id": "swipe_on_mobile",
 "default": false,
 "label": "t:sections.collection-list.settings.swipe_on_mobile.label"
+},
+{
+"type": "select",
+"id": "mobile_image_ratio",
+"label": "Mobile image ratio",
+"default": "match",
+"options": [
+{
+"value": "match",
+"label": "Match desktop"
+},
+{
+"value": "square",
+"label": "Square"
+},
+{
+"value": "portrait",
+"label": "Portrait"
+},
+{
+"value": "landscape",
+"label": "Landscape"
+}
+]
+},
+{
+"type": "header",
+"content": "Spacing"
+},
+{
+"type": "range",
+"id": "grid_gap",
+"min": 0,
+"max": 32,
+"step": 2,
+"unit": "px",
+"label": "Grid gap",
+"default": 16
 },
 {
 "type": "header",
