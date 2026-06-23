@@ -828,8 +828,58 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "image_with_text_qM4nQE": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_BCrRJU": {
+          "type": "heading",
+          "settings": {
+            "heading": "What <strong>Zaal Mart</strong> Is All About",
+            "heading_size": "h1"
+          }
+        },
+        "text_cQnzTd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We started <strong>Zaal Mart</strong> with a simple vision: to make online shopping easier, more convenient, and more affordable for everyone. Our goal is to bring a wide<br/>variety of products together in one place, so you can find your favorite items and everyday essentials without the hassle of browsing multiple stores.</p><p>From home décor and kitchen essentials to baby care products and the latest trending items, Zaal Mart offers a diverse selection for every home and lifestyle. Our mission is to make quality products accessible while providing a smooth and reliable shopping experience.</p><p>We are dedicated to offering competitive prices, exciting deals, and products that add value to your everyday life. Whether you are shopping for necessities or treating yourself to something special, you can count on Zaal Mart to deliver great choices at affordable prices.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_hTTwxH": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start Shopping",
+            "button_link": "shopify://collections",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_BCrRJU",
+        "text_cQnzTd",
+        "button_hTTwxH"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_22_2026_05_01_41_PM.png",
+        "custom_class": "",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "custom_liquid_cFpNXY": {
       "type": "custom-liquid",
+      "disabled": true,
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
         "custom_liquid": "<div class=\"custom-section\">\n\n  <div class=\"content\">\n    <h2> What<span>Zaal Mart </span> Is All About </h2>\n    <p>We started Zaal Mart with a simple vision: to make online shopping easier, more convenient, and more affordable for everyone. Our goal is to bring a wide variety of products together in one place, so you can find your favorite items and everyday essentials without the hassle of browsing multiple stores.</p>\n    <p>From home décor and kitchen essentials to baby care products and the latest trending items, Zaal Mart offers a diverse selection for every home and lifestyle. Our mission is to make quality products accessible while providing a smooth and reliable shopping experience.</p>\n<p>We are dedicated to offering competitive prices, exciting deals, and products that add value to your everyday life. Whether you are shopping for necessities or treating yourself to something special, you can count on Zaal Mart to deliver great choices at affordable prices.</p>\n    <a href=\"/pages/about-us-2\">Start Shopping</a>\n  </div>\n\n  <div class=\"video-box\">\n    <video class=\"custom-video\" poster=\"https://cdn.shopify.com/s/files/1/0896/2467/4598/files/ProSwag_About-Us-Short_poster.webp\">\n      <source src=\"https://cdn.shopify.com/videos/c/o/v/57ad3c66d6bc4b82af1d9d768dde8137.webm\" type=\"video/mp4\">\n    </video>\n    <button class=\"play-btn\"></button>\n  </div>\n\n</div>",
@@ -1006,54 +1056,6 @@
         "padding_top": 88,
         "padding_bottom": 72
       }
-    },
-    "image_with_text_qM4nQE": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_BCrRJU": {
-          "type": "heading",
-          "settings": {
-            "heading": "What <strong>Zaal Mart</strong> Is All About",
-            "heading_size": "h1"
-          }
-        },
-        "text_cQnzTd": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We started <strong>Zaal Mart</strong> with a simple vision: to make online shopping easier, more convenient, and more affordable for everyone. Our goal is to bring a wide<br/>variety of products together in one place, so you can find your favorite items and everyday essentials without the hassle of browsing multiple stores.</p><p>From home décor and kitchen essentials to baby care products and the latest trending items, Zaal Mart offers a diverse selection for every home and lifestyle. Our mission is to make quality products accessible while providing a smooth and reliable shopping experience.</p><p>We are dedicated to offering competitive prices, exciting deals, and products that add value to your everyday life. Whether you are shopping for necessities or treating yourself to something special, you can count on Zaal Mart to deliver great choices at affordable prices.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_hTTwxH": {
-          "type": "button",
-          "settings": {
-            "button_label": "Start Shopping",
-            "button_link": "shopify://collections",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_BCrRJU",
-        "text_cQnzTd",
-        "button_hTTwxH"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "custom_class": "",
-        "height": "medium",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -1067,12 +1069,12 @@
     "multicolumn_LqrQEH",
     "multicolumn_Gwrbnx",
     "slideshow_rj4Er8",
+    "image_with_text_qM4nQE",
     "custom_liquid_cFpNXY",
     "rich_text_VxLFY8",
     "custom_liquid_X9JMUQ",
     "custom_html_frwMRy",
     "image_banner_XdKqeh",
-    "collapsible_content_m7xNMA",
-    "image_with_text_qM4nQE"
+    "collapsible_content_m7xNMA"
   ]
 }
