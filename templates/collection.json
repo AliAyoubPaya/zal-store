@@ -72,11 +72,168 @@
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
+    },
+    "collection_tabs_7deXxC": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_3eL7rN": {
+          "type": "collection",
+          "settings": {
+            "collection": "trending-products",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "flame",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_D3qyEP": {
+          "type": "collection",
+          "settings": {
+            "collection": "home-care",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "home",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_hrR6pz": {
+          "type": "collection",
+          "settings": {
+            "collection": "smart-wearables",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "watch",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_UApbjm": {
+          "type": "collection",
+          "settings": {
+            "collection": "personal-care-grooming",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "sparkle",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_JVBQRU": {
+          "type": "collection",
+          "settings": {
+            "collection": "mobile-accessories",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "smartphone",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_k6K79a": {
+          "type": "collection",
+          "settings": {
+            "collection": "kitchen-dining",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "utensils",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_F6CtnB": {
+          "type": "collection",
+          "settings": {
+            "collection": "health-wellness",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "heart-pulse",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_634BUK": {
+          "type": "collection",
+          "settings": {
+            "collection": "fitness-sports",
+            "title_override": "",
+            "icon_source": "collection_image",
+            "built_in_icon": "dumbbell",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_bX4yRN": {
+          "type": "collection",
+          "settings": {
+            "collection": "consumer-electronics",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "laptop",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_8agwM4": {
+          "type": "collection",
+          "settings": {
+            "collection": "automotive-essentials",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "car",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_XggdLU": {
+          "type": "collection",
+          "settings": {
+            "collection": "audio-sound",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "headphones",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        }
+      },
+      "block_order": [
+        "collection_3eL7rN",
+        "collection_D3qyEP",
+        "collection_hrR6pz",
+        "collection_UApbjm",
+        "collection_JVBQRU",
+        "collection_k6K79a",
+        "collection_F6CtnB",
+        "collection_634BUK",
+        "collection_bX4yRN",
+        "collection_8agwM4",
+        "collection_XggdLU"
+      ],
+      "name": "Collection Tabs",
+      "settings": {
+        "title": "Shop by Category",
+        "heading_size": "h1",
+        "section_width": "container",
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "mobile_padding": "compact",
+        "tablet_layout": "horizontal_swipe",
+        "mobile_layout": "horizontal_swipe",
+        "mobile_tab_padding": 14,
+        "mobile_icon_size": 36,
+        "tab_gap": 12,
+        "enable_swipe_hint": true,
+        "swipe_hint_text": "Swipe Categories",
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "banner",
     "product-grid",
-    "image_banner_4V7rLk"
+    "image_banner_4V7rLk",
+    "collection_tabs_7deXxC"
   ]
 }
