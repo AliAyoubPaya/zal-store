@@ -293,8 +293,8 @@
           "settings": {
             "collection": "personal-care-grooming",
             "title_override": "",
-            "icon_source": "collection_image",
-            "built_in_icon": "smartphone",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "sparkle",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
