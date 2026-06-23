@@ -54,6 +54,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/banner_image.webp",
+            "image_mobile": "shopify://shop_images/mobile_banner_image.webp",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
