@@ -330,7 +330,7 @@ html.js {
     gap: 0;
 } */
 
-.featureProductWrap .card__information a {
+.featureProductWrap .card__information a, .featuredWrap .card__information a{
     color: #fff;
     text-transform: uppercase;
     border-radius: 4px;
@@ -340,7 +340,7 @@ html.js {
     transition: .2s all;
 }
 
-.featureProductWrap .card__information a:hover {
+.featureProductWrap .card__information a:hover, .featuredWrap .card__information a:hover{
     background: #6F7B5E;
     border-color: #6F7B5E;
 }
