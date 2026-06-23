@@ -604,7 +604,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/WhatsAppImage2026-06-13at4.53.48AM.jpg",
-            "title": "",
+            "title": "Test",
             "text": "",
             "link_label": "",
             "link": ""
@@ -814,6 +814,7 @@
         "column_hXcPxn",
         "column_YU8nYD"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "swipe_on_desktop": true,
