@@ -244,6 +244,17 @@
     "collection_tabs_6LQ3rx": {
       "type": "collection-tabs",
       "blocks": {
+        "collection_afEXbF": {
+          "type": "collection",
+          "settings": {
+            "collection": "all",
+            "title_override": "",
+            "icon_source": "built_in_icon",
+            "built_in_icon": "grid",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
         "collection_VCqG4D": {
           "type": "collection",
           "settings": {
@@ -277,17 +288,6 @@
             "icon_background_color": "#f5f5f5"
           }
         },
-        "collection_HexR7r": {
-          "type": "collection",
-          "settings": {
-            "collection": "smart-wearables",
-            "title_override": "",
-            "icon_source": "collection_image",
-            "built_in_icon": "watch",
-            "icon_size": 42,
-            "icon_background_color": "#f5f5f5"
-          }
-        },
         "collection_PQjXye": {
           "type": "collection",
           "settings": {
@@ -295,6 +295,17 @@
             "title_override": "",
             "icon_source": "built_in_icon",
             "built_in_icon": "sparkle",
+            "icon_size": 42,
+            "icon_background_color": "#f5f5f5"
+          }
+        },
+        "collection_HexR7r": {
+          "type": "collection",
+          "settings": {
+            "collection": "smart-wearables",
+            "title_override": "",
+            "icon_source": "collection_image",
+            "built_in_icon": "watch",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -317,17 +328,6 @@
             "title_override": "",
             "icon_source": "collection_image",
             "built_in_icon": "utensils",
-            "icon_size": 42,
-            "icon_background_color": "#f5f5f5"
-          }
-        },
-        "collection_afEXbF": {
-          "type": "collection",
-          "settings": {
-            "collection": "health-wellness",
-            "title_override": "",
-            "icon_source": "collection_image",
-            "built_in_icon": "heart-pulse",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
           }
@@ -378,14 +378,14 @@
         }
       },
       "block_order": [
+        "collection_afEXbF",
         "collection_VCqG4D",
         "collection_fiw8em",
         "collection_3RcY9q",
-        "collection_HexR7r",
         "collection_PQjXye",
+        "collection_HexR7r",
         "collection_Gx73HF",
         "collection_8n8jBY",
-        "collection_afEXbF",
         "collection_xdbchX",
         "collection_87gJz4",
         "collection_eLmiWx",
