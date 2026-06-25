@@ -455,6 +455,35 @@
         "mobile_image_ratio": "match",
         "grid_gap": 12,
         "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_Rn4Qz6": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     },
@@ -463,36 +492,42 @@
       "blocks": {
         "featured_collection_tQLWHt": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "trending-products"
           }
         },
         "featured_collection_3dKKCQ": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "frontpage"
           }
         },
         "featured_collection_e7hAMH": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "home-care"
           }
         },
         "featured_collection_AdtqYi": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "home-care"
           }
         },
         "featured_collection_z4rqMR": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "personal-care-grooming"
           }
         },
         "featured_collection_tRbCGz": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "frontpage"
           }
@@ -522,6 +557,35 @@
         "mobile_image_ratio": "match",
         "grid_gap": 12,
         "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_qU3JgW": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     },
@@ -927,7 +991,7 @@
         "text_cQnzTd",
         "button_hTTwxH"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "About zaalMart",
       "settings": {
         "image": "shopify://shop_images/QuickPushPopGameConsole_3.webp",
         "custom_class": "",
@@ -1108,7 +1172,7 @@
         "collapsible_row_bTwR38",
         "collapsible_row_y7R4it"
       ],
-      "name": "t:sections.collapsible_content.presets.name",
+      "name": "FAQ",
       "settings": {
         "caption": "",
         "custom_class": "faqWrap",
@@ -1133,7 +1197,9 @@
     "multicolumn_U9wF4t",
     "collection_tabs_6LQ3rx",
     "collection_list_QTB3CU",
+    "featured_collection_Rn4Qz6",
     "collection_list_TQAfJc",
+    "featured_collection_qU3JgW",
     "multicolumn_LqrQEH",
     "multicolumn_Gwrbnx",
     "slideshow_rj4Er8",
