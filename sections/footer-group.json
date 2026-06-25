@@ -30,9 +30,17 @@
         },
         "link_list_ecBDij": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "Help",
             "menu": "footer"
+          }
+        },
+        "text_YWk4dJ": {
+          "type": "text",
+          "settings": {
+            "heading": "<strong>Contact Us</strong>",
+            "subtext": "<p>Phone: 03242599940<br/>Shop No. 105/106 3rd Floor, Amber Center,<br/>Main Muhammad Ali Jinnah Road, In front of Gul Plaza,<br/>Preedy Quarters, Karachi, Pakistan<br/></p>"
           }
         },
         "image_ggm6Tf": {
@@ -48,6 +56,7 @@
         "link_list_pGiwkf",
         "link_list_dzmWcY",
         "link_list_ecBDij",
+        "text_YWk4dJ",
         "image_ggm6Tf"
       ],
       "custom_css": [],
