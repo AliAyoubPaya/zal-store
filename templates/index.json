@@ -326,7 +326,7 @@
           "settings": {
             "collection": "kitchen-dining",
             "title_override": "",
-            "icon_source": "collection_image",
+            "icon_source": "built_in_icon",
             "built_in_icon": "utensils",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
@@ -348,7 +348,7 @@
           "settings": {
             "collection": "consumer-electronics",
             "title_override": "",
-            "icon_source": "collection_image",
+            "icon_source": "built_in_icon",
             "built_in_icon": "laptop",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
