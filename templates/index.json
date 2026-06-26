@@ -1097,9 +1097,59 @@
         "heading_MfhaYY",
         "buttons_E9mAah"
       ],
+      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/fzm_image.jpg",
+        "image": "shopify://shop_images/Bottom_Banner.webp",
         "custom_class": "gearBannerWrap",
+        "image_overlay_opacity": 10,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-6bb7c0a2-3c4e-45e5-a377-4fdae40c7505",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "image_banner_DxV7Bc": {
+      "type": "image-banner",
+      "blocks": {
+        "text_QraA87": {
+          "type": "text",
+          "settings": {
+            "text": "ShopMore, Save More",
+            "text_style": "home-hdr-subhead"
+          }
+        },
+        "heading_UWWtKB": {
+          "type": "heading",
+          "settings": {
+            "heading": "ExploreEveryday Essentials and Trending Finds",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_UWbT7t": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shope Now",
+            "button_link_1": "shopify://collections",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_QraA87",
+        "heading_UWWtKB",
+        "buttons_UWbT7t"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Bottom_Banner.webp",
+        "custom_class": "",
         "image_overlay_opacity": 10,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
@@ -1207,6 +1257,7 @@
     "custom_liquid_X9JMUQ",
     "custom_html_frwMRy",
     "image_banner_XdKqeh",
+    "image_banner_DxV7Bc",
     "collapsible_content_m7xNMA"
   ]
 }
