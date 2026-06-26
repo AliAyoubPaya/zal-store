@@ -1150,7 +1150,7 @@
       "settings": {
         "image": "shopify://shop_images/Bottom_Banner.webp",
         "custom_class": "",
-        "image_overlay_opacity": 10,
+        "image_overlay_opacity": 50,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
