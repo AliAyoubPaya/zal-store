@@ -282,7 +282,7 @@
           "settings": {
             "collection": "home-care",
             "title_override": "",
-            "icon_source": "built_in",
+            "icon_source": "built_in_icon",
             "built_in_icon": "home",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
@@ -304,7 +304,7 @@
           "settings": {
             "collection": "smart-wearables",
             "title_override": "",
-            "icon_source": "collection_image",
+            "icon_source": "built_in_icon",
             "built_in_icon": "watch",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
@@ -315,7 +315,7 @@
           "settings": {
             "collection": "mobile-accessories",
             "title_override": "",
-            "icon_source": "collection_image",
+            "icon_source": "built_in_icon",
             "built_in_icon": "grid",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
@@ -337,7 +337,7 @@
           "settings": {
             "collection": "fitness-sports",
             "title_override": "",
-            "icon_source": "collection_image",
+            "icon_source": "built_in_icon",
             "built_in_icon": "dumbbell",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
@@ -359,7 +359,7 @@
           "settings": {
             "collection": "automotive-essentials",
             "title_override": "",
-            "icon_source": "collection_image",
+            "icon_source": "built_in_icon",
             "built_in_icon": "car",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
@@ -370,7 +370,7 @@
           "settings": {
             "collection": "audio-sound",
             "title_override": "",
-            "icon_source": "collection_image",
+            "icon_source": "built_in_icon",
             "built_in_icon": "headphones",
             "icon_size": 42,
             "icon_background_color": "#f5f5f5"
