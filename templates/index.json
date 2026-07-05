@@ -127,7 +127,7 @@
           "type": "benefit",
           "settings": {
             "title": "Cash on Delivery",
-            "description": "Safe & secure checkout via SSL",
+            "description": "Pay when your order arrives at your doorstep",
             "link": "",
             "accessibility_label": ""
           }
