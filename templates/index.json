@@ -126,7 +126,7 @@
         "benefit_secure_payments": {
           "type": "benefit",
           "settings": {
-            "title": "Secure Payments",
+            "title": "Cash on Delivery",
             "description": "Safe & secure checkout via SSL",
             "link": "",
             "accessibility_label": ""
@@ -135,8 +135,8 @@
         "benefit_fast_shipping": {
           "type": "benefit",
           "settings": {
-            "title": "Free & Fast Shipping",
-            "description": "World-wide free shipping",
+            "title": "Fast Shipping",
+            "description": "Fast Delivery All Over Pakistan",
             "link": "",
             "accessibility_label": ""
           }
@@ -145,7 +145,7 @@
           "type": "benefit",
           "settings": {
             "title": "Hassle Free Return",
-            "description": "30 days to return your products",
+            "description": "07 days to return your products",
             "link": "",
             "accessibility_label": ""
           }
