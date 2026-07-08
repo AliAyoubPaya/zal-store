@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_xpgDmB": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_9nRyLB": {
+          "type": "heading",
+          "settings": {
+            "heading": "What <strong>Zaal Mart</strong> Is All About",
+            "heading_size": "h1"
+          }
+        },
+        "text_FpHVY4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We started <strong>Zaal Mart</strong> with a simple vision: to make online shopping easier, more convenient, and more affordable for everyone. Our goal is to bring a wide<br/>variety of products together in one place, so you can find your favorite items and everyday essentials without the hassle of browsing multiple stores.</p><p>From home decor and kitchen essentials to baby care products and the latest trending items, Zaal Mart offers a diverse selection for every home and lifestyle. Our mission is to make quality products accessible while providing a smooth and reliable shopping experience.</p><p>We are dedicated to offering competitive prices, exciting deals, and products that add value to your everyday life. Whether you are shopping for necessities or treating yourself to something special, you can count on Zaal Mart to deliver great choices at affordable prices.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_Wb8Tkm": {
+          "type": "button",
+          "settings": {
+            "button_label": "start shopping",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_9nRyLB",
+        "text_FpHVY4",
+        "button_Wb8Tkm"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/gift-card.jpg",
+        "custom_class": "",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "background-1",
+        "color_scheme": "scheme-ecd4641a-99c7-4b00-bc89-625664b16860",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_xpgDmB"
+  ]
+}
