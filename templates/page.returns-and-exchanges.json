@@ -48,6 +48,7 @@
         "text_FpHVY4",
         "button_Wb8Tkm"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/gift-card.jpg",
@@ -65,10 +66,43 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "rich_text_4eAwdr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_B6LzkK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Return & Exchange Policy",
+            "heading_size": "h1"
+          }
+        },
+        "text_WdBxUC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At <strong>Zaal Mart</strong>, customer satisfaction is our priority. If you receive a defective, damaged, or incorrect item, we're here to help with a return or exchange.</p><h2>Eligibility for Returns & Exchanges</h2><p>To qualify for a return or exchange:</p><ul><li>Requests must be submitted within <strong>7 days</strong> of receiving your order.</li><li>The item must be <strong>unused</strong>, <strong>unworn</strong>, and returned in its <strong>original packaging</strong> with all tags and accessories (if applicable).</li><li>Returns and exchanges are only accepted for items that are <strong>defective</strong>, <strong>damaged during shipping</strong>, or <strong>incorrectly delivered</strong>.</li><li>We do not accept returns or exchanges due to a change of mind, incorrect size selection, personal preference, or dislike of the product's color or design.</li></ul><h2>How to Request a Return or Exchange</h2><ol><li>Contact our customer support team through our <strong>Contact Us</strong> page or via <strong>WhatsApp</strong>.</li><li>Provide your <strong>order number</strong>, clear photos of the item, and a brief description of the issue.</li><li>Our team will review your request and respond as soon as possible.</li><li>If your request is approved, we will provide instructions for returning the item and arrange an exchange or replacement, subject to product availability.</li></ol><h2>Exchange Process</h2><ul><li>Exchanges are subject to product availability.</li><li>If the requested replacement item is unavailable, we will offer an alternative product of equal value or provide store credit, where applicable.</li><li>Customers may be responsible for return shipping costs unless the item received was damaged, defective, or incorrect.</li></ul><h2>Important Note</h2><p><strong>Zaal Mart</strong> reserves the right to refuse any return or exchange request that does not meet the eligibility requirements outlined in this policy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_B6LzkK",
+        "text_WdBxUC"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "custom_class": "",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
-    "image_with_text_xpgDmB"
+    "image_with_text_xpgDmB",
+    "rich_text_4eAwdr"
   ]
 }
