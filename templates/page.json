@@ -50,6 +50,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/Who_we_are_zaalmart.png",
         "custom_class": "",
         "height": "adapt",
         "desktop_image_width": "medium",
