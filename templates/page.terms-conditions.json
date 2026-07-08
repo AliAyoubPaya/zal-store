@@ -17,58 +17,41 @@
         "padding_bottom": 28
       }
     },
-    "image_with_text_xpgDmB": {
-      "type": "image-with-text",
+    "rich_text_UmnWY4": {
+      "type": "rich-text",
       "blocks": {
-        "heading_9nRyLB": {
+        "heading_kKR7MJ": {
           "type": "heading",
           "settings": {
-            "heading": "What <strong>Zaal Mart</strong> Is All About",
+            "heading": "Terms & Conditions",
             "heading_size": "h1"
           }
         },
-        "text_FpHVY4": {
+        "text_YYXGYx": {
           "type": "text",
           "settings": {
-            "text": "<p>We started <strong>Zaal Mart</strong> with a simple vision: to make online shopping easier, more convenient, and more affordable for everyone. Our goal is to bring a wide<br/>variety of products together in one place, so you can find your favorite items and everyday essentials without the hassle of browsing multiple stores.</p><p>From home decor and kitchen essentials to baby care products and the latest trending items, Zaal Mart offers a diverse selection for every home and lifestyle. Our mission is to make quality products accessible while providing a smooth and reliable shopping experience.</p><p>We are dedicated to offering competitive prices, exciting deals, and products that add value to your everyday life. Whether you are shopping for necessities or treating yourself to something special, you can count on Zaal Mart to deliver great choices at affordable prices.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_Wb8Tkm": {
-          "type": "button",
-          "settings": {
-            "button_label": "start shopping",
-            "button_link": "",
-            "button_style_secondary": false
+            "text": "<p>Welcome to <strong>Zaal Mart</strong>. By accessing or using our website, you agree to comply with and be bound by the following Terms & Conditions. Please read them carefully before placing an order.</p><h2>Product Information</h2><p>We strive to ensure that all product descriptions, images, prices, and availability are accurate. However, <strong>Zaal Mart</strong> reserves the right to update, modify, or discontinue products, pricing, or content at any time without prior notice.</p><h2>Order Acceptance</h2><p>All orders are subject to acceptance and availability. We reserve the right to cancel or refuse any order due to pricing errors, stock unavailability, payment issues, or suspected fraudulent activity.</p><h2>Customer Responsibility</h2><p>Customers are responsible for providing accurate billing, shipping, and contact information when placing an order. <strong>Zaal Mart</strong> is not responsible for delays or delivery issues resulting from incorrect or incomplete information provided by the customer.</p><h2>Intellectual Property</h2><p>All content on this website, including text, images, graphics, logos, and product listings, is the property of <strong>Zaal Mart</strong> and may not be copied, reproduced, distributed, or used without prior written permission.</p><h2>Limitation of Liability</h2><p><strong>Zaal Mart</strong> shall not be liable for any indirect, incidental, or consequential damages arising from the use of our website, products, or services.</p><h2>Policy Acceptance</h2><p>By placing an order through our website, you acknowledge that you have read, understood, and agreed to our <strong>Return & Exchange Policy</strong>, <strong>Shipping Policy</strong>, <strong>Privacy Policy</strong>, and these <strong>Terms & Conditions</strong>.</p><h2>Changes to These Terms</h2><p><strong>Zaal Mart</strong> reserves the right to update or modify these Terms & Conditions at any time. Any changes will become effective immediately upon being posted on this website.</p>"
           }
         }
       },
       "block_order": [
-        "heading_9nRyLB",
-        "text_FpHVY4",
-        "button_Wb8Tkm"
+        "heading_kKR7MJ",
+        "text_YYXGYx"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/gift-card.jpg",
+        "desktop_content_position": "center",
         "custom_class": "",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "background-1",
-        "color_scheme": "scheme-ecd4641a-99c7-4b00-bc89-625664b16860",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
     "main",
-    "image_with_text_xpgDmB"
+    "rich_text_UmnWY4"
   ]
 }
