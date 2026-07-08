@@ -17,58 +17,41 @@
         "padding_bottom": 28
       }
     },
-    "image_with_text_xpgDmB": {
-      "type": "image-with-text",
+    "rich_text_CCC6GG": {
+      "type": "rich-text",
       "blocks": {
-        "heading_9nRyLB": {
+        "heading_YQVcec": {
           "type": "heading",
           "settings": {
-            "heading": "What <strong>Zaal Mart</strong> Is All About",
+            "heading": "Shipping Policy",
             "heading_size": "h1"
           }
         },
-        "text_FpHVY4": {
+        "text_ma8NUq": {
           "type": "text",
           "settings": {
-            "text": "<p>We started <strong>Zaal Mart</strong> with a simple vision: to make online shopping easier, more convenient, and more affordable for everyone. Our goal is to bring a wide<br/>variety of products together in one place, so you can find your favorite items and everyday essentials without the hassle of browsing multiple stores.</p><p>From home decor and kitchen essentials to baby care products and the latest trending items, Zaal Mart offers a diverse selection for every home and lifestyle. Our mission is to make quality products accessible while providing a smooth and reliable shopping experience.</p><p>We are dedicated to offering competitive prices, exciting deals, and products that add value to your everyday life. Whether you are shopping for necessities or treating yourself to something special, you can count on Zaal Mart to deliver great choices at affordable prices.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_Wb8Tkm": {
-          "type": "button",
-          "settings": {
-            "button_label": "start shopping",
-            "button_link": "",
-            "button_style_secondary": false
+            "text": "<p>At <strong>Zaal Mart</strong>, we are committed to delivering your orders quickly, safely, and efficiently. Please review our shipping policy below.</p><h2>Order Processing</h2><ul><li>All orders are processed within <strong>1–2 business days</strong> after payment confirmation.</li><li>Orders placed on weekends or public holidays will be processed on the next business day.</li><li>Once your order has been shipped, you will receive a confirmation message with your tracking details (where available).</li></ul><h2>Shipping Time</h2><p>Estimated delivery times are as follows:</p><ul><li><strong>Major Cities:</strong> 2–5 business days</li><li><strong>Other Areas:</strong> 3–7 business days</li></ul><p>Please note that delivery times are estimates and may vary due to weather conditions, courier delays, or other unforeseen circumstances.</p><h2>Shipping Charges</h2><p>Shipping charges are calculated at checkout based on your delivery location and the size or weight of your order. Any applicable shipping fees will be displayed before you complete your purchase.</p><h2>Order Tracking</h2><p>If tracking is available for your shipment, you will receive tracking information via email or WhatsApp once your order has been dispatched.</p><h2>Delivery Attempts</h2><p>Please ensure that someone is available to receive the order at the provided delivery address. If a delivery attempt is unsuccessful due to an incorrect address or the recipient's unavailability, additional delivery charges may apply.</p><h2>Incorrect Shipping Information</h2><p>Customers are responsible for providing accurate shipping details. <strong>Zaal Mart</strong> is not responsible for delays or failed deliveries caused by incorrect or incomplete shipping information.</p><h2>Damaged or Missing Items</h2><p>If your order arrives damaged, incomplete, or you receive the wrong item, please contact us within <strong>7 days</strong> of delivery through our <strong>Contact Us</strong> page or WhatsApp. Include your order number and clear photos of the item so we can assist you promptly.</p><h2>Contact Us</h2><p>If you have any questions regarding shipping or your order, please contact our customer support team through our <strong>Contact Us</strong> page or via <strong>WhatsApp</strong>. We're always happy to help.</p>"
           }
         }
       },
       "block_order": [
-        "heading_9nRyLB",
-        "text_FpHVY4",
-        "button_Wb8Tkm"
+        "heading_YQVcec",
+        "text_ma8NUq"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/gift-card.jpg",
+        "desktop_content_position": "center",
         "custom_class": "",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "background-1",
-        "color_scheme": "scheme-ecd4641a-99c7-4b00-bc89-625664b16860",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
     "main",
-    "image_with_text_xpgDmB"
+    "rich_text_CCC6GG"
   ]
 }
