@@ -177,6 +177,79 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "collapsible_content_wXEyHe": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_nEjVzx": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "1. How do I place an order?",
+            "icon": "none",
+            "row_content": "<p>When you find something, you like, simply add it to your cart and proceed to<br/>checkout. Fill in your delivery details, place your order, and we'll handle the<br/>rest while you look forward to receiving your purchase.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_mmbY7Q": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "2. Do you offer Cash on Delivery?",
+            "icon": "none",
+            "row_content": "<p>Absolutely. We offer Cash on Delivery so you can shop with confidence and pay when your order arrives at your doorstep.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_xpU97H": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "3. What if I receive a damaged or incorrect item?",
+            "icon": "none",
+            "row_content": "<p>If you receive a damaged, defective, or incorrect item, please contact our customer support team within <strong>24  hours of delivery</strong> with your order number and clear photos of the item received. We will review your request and arrange a replacement, exchange, or refund as applicable. Your satisfaction is our priority, and we will work to resolve the issue as quickly as possible.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_XWhnpV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "4. How long does delivery take?",
+            "icon": "none",
+            "row_content": "<p>Delivery times may vary depending on your location and product availability. Most orders<br/>are delivered within a few business days after confirmation.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_fpHDW4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "5.  Can I cancel or modify my order?",
+            "icon": "none",
+            "row_content": "<p>If your order has not yet been processed or shipped, you may be able to request a<br/>cancellation or modification. Please contact our support team as soon as<br/>possible for assistance.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_nEjVzx",
+        "collapsible_row_mmbY7Q",
+        "collapsible_row_xpU97H",
+        "collapsible_row_XWhnpV",
+        "collapsible_row_fpHDW4"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "custom_class": "faqWrap",
+        "heading": "frequently asked <strong>questions</strong>",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -184,6 +257,7 @@
     "related-products",
     "image_banner_gxQpdV",
     "image_banner_Uejmwf",
-    "17856103561d696732"
+    "17856103561d696732",
+    "collapsible_content_wXEyHe"
   ]
 }
