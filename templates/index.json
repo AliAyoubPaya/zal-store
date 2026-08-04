@@ -1207,7 +1207,7 @@
         "collapsible_row_y7R4it": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "6.  Can I cancel or modify my order?",
+            "heading": "5.  Can I cancel or modify my order?",
             "icon": "none",
             "row_content": "<p>If your order has not yet been processed or shipped, you may be able to request a<br/>cancellation or modification. Please contact our support team as soon as<br/>possible for assistance.</p>",
             "page": ""
