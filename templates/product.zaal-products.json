@@ -12,6 +12,13 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "essential_trust_badges_app_block_ckXwzg": {
+          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+          "settings": {
+            "banner_display": "all",
+            "banner_id": "c1de64b2-f49a-4b7d-8dac-fbeb2915a8eb"
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -60,6 +67,7 @@
         }
       },
       "block_order": [
+        "essential_trust_badges_app_block_ckXwzg",
         "vendor",
         "title",
         "judge_me_reviews_preview_badge_YFMYFG",
@@ -250,24 +258,6 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "17858754318134c0a8": {
-      "type": "apps",
-      "blocks": {
-        "essential_trust_badges_app_block_dV7Xjj": {
-          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
-          "settings": {
-            "banner_display": "all",
-            "banner_id": "c1de64b2-f49a-4b7d-8dac-fbeb2915a8eb"
-          }
-        }
-      },
-      "block_order": [
-        "essential_trust_badges_app_block_dV7Xjj"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
@@ -276,7 +266,6 @@
     "image_banner_gxQpdV",
     "image_banner_Uejmwf",
     "17856103561d696732",
-    "collapsible_content_wXEyHe",
-    "17858754318134c0a8"
+    "collapsible_content_wXEyHe"
   ]
 }
