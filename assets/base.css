@@ -3619,3 +3619,14 @@ details-disclosure > details {
 #cart-notification .cart-notification__links #cart-notification-form{
   display: none;
 }
+
+.card__content {
+    pointer-events: none;
+}
+
+.card__content a,
+.card__content button,
+.card__content select,
+.card__content input {
+    pointer-events: auto;
+}
