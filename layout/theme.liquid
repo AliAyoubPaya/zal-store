@@ -575,5 +575,147 @@ class="whatsapp-widget">
 </div>
 
 </a>
+
+<script>
+(function () {
+
+  function fixZaalProductGallery() {
+
+    if (window.innerWidth < 750) return;
+
+    const galleries = document.querySelectorAll(
+      'media-gallery[data-desktop-layout="thumbnail_slider"], media-gallery[data-desktop-layout="thumbnails"]'
+    );
+
+    galleries.forEach(function (gallery) {
+
+      const mainArea = gallery.querySelector(
+        '> slider-component:not(.thumbnail-slider)'
+      );
+
+      const mainImage = gallery.querySelector(
+        '.product__media-item.is-active img'
+      );
+
+      const thumbnailBox = gallery.querySelector(
+        '.thumbnail-slider'
+      );
+
+      if (!mainArea || !thumbnailBox) return;
+
+      let height = 0;
+
+      /*
+       * First try active image height
+       */
+      if (mainImage && mainImage.getBoundingClientRect().height > 0) {
+        height = mainImage.getBoundingClientRect().height;
+      }
+
+      /*
+       * Fallback to main media container
+       */
+      if (!height) {
+        const mediaContainer = gallery.querySelector(
+          '.product__media-item.is-active .product-media-container'
+        );
+
+        if (mediaContainer) {
+          height = mediaContainer.getBoundingClientRect().height;
+        }
+      }
+
+      /*
+       * Final fallback
+       */
+      if (!height) {
+        height = mainArea.getBoundingClientRect().height;
+      }
+
+      if (height > 0) {
+        gallery.style.setProperty(
+          '--zaalgallery-height',
+          Math.round(height) + 'px'
+        );
+      }
+
+    });
+
+  }
+
+
+  /*
+   * Initial load
+   */
+  window.addEventListener('load', function () {
+
+    setTimeout(fixZaalProductGallery, 100);
+
+    setTimeout(fixZaalProductGallery, 500);
+
+    setTimeout(fixZaalProductGallery, 1000);
+
+  });
+
+
+  /*
+   * Resize
+   */
+  window.addEventListener(
+    'resize',
+    fixZaalProductGallery
+  );
+
+
+  /*
+   * Recalculate when image loads
+   */
+  document.addEventListener(
+    'load',
+    function (event) {
+
+      if (
+        event.target &&
+        event.target.tagName === 'IMG'
+      ) {
+        setTimeout(
+          fixZaalProductGallery,
+          100
+        );
+      }
+
+    },
+    true
+  );
+
+
+  /*
+   * Watch gallery changes
+   * This helps when variant changes
+   */
+  const observer = new MutationObserver(function () {
+
+    setTimeout(
+      fixZaalProductGallery,
+      100
+    );
+
+  });
+
+
+  observer.observe(
+    document.body,
+    {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class']
+    }
+  );
+
+
+})();
+</script>
+
   </body>
 </html>
