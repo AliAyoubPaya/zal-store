@@ -576,5 +576,126 @@ class="whatsapp-widget">
 
 </a>
 
+
+<script>
+(function () {
+
+  function syncThumbnailHeight() {
+
+    if (window.innerWidth < 750) return;
+
+    const galleries = document.querySelectorAll('media-gallery');
+
+    galleries.forEach(function (gallery) {
+
+      const thumbnailSlider = gallery.querySelector('.thumbnail-slider');
+
+      if (!thumbnailSlider) return;
+
+      /* Main product image/media */
+      const activeMedia =
+        gallery.querySelector('.product__media-item.is-active');
+
+      if (!activeMedia) return;
+
+      /* Get the ACTUAL rendered height of main image */
+      const mainHeight = activeMedia.getBoundingClientRect().height;
+
+      if (mainHeight > 0) {
+
+        /* Apply height directly to thumbnail area */
+        thumbnailSlider.style.setProperty(
+          'height',
+          Math.round(mainHeight) + 'px',
+          'important'
+        );
+
+        thumbnailSlider.style.setProperty(
+          'max-height',
+          Math.round(mainHeight) + 'px',
+          'important'
+        );
+
+        /* Also set variable for our CSS */
+        gallery.style.setProperty(
+          '--zaalgallery-height',
+          Math.round(mainHeight) + 'px'
+        );
+
+        thumbnailSlider.style.setProperty(
+          '--zaalgallery-height',
+          Math.round(mainHeight) + 'px'
+        );
+      }
+
+    });
+  }
+
+
+  /* Initial load */
+  window.addEventListener('load', function () {
+
+    setTimeout(syncThumbnailHeight, 100);
+    setTimeout(syncThumbnailHeight, 500);
+    setTimeout(syncThumbnailHeight, 1000);
+    setTimeout(syncThumbnailHeight, 2000);
+
+  });
+
+
+  /* Resize */
+  window.addEventListener(
+    'resize',
+    syncThumbnailHeight
+  );
+
+
+  /* When images finish loading */
+  document.addEventListener(
+    'load',
+    function (event) {
+
+      if (
+        event.target &&
+        event.target.tagName === 'IMG'
+      ) {
+
+        setTimeout(
+          syncThumbnailHeight,
+          200
+        );
+
+      }
+
+    },
+    true
+  );
+
+
+  /* Shopify variant/image changes */
+  const observer = new MutationObserver(function () {
+
+    setTimeout(
+      syncThumbnailHeight,
+      150
+    );
+
+  });
+
+
+  observer.observe(
+    document.body,
+    {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ['class']
+    }
+  );
+
+
+})();
+</script>
+
   </body>
 </html>
