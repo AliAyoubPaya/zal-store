@@ -3725,3 +3725,261 @@ height:58px;
 
 }
 
+/* =========================================================
+   ZAAL MART PRODUCT GALLERY
+   Vertical thumbnails = EXACT height of main image
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* 3-column product area:
+     thumbnails | main image | product info
+  */
+
+  .product__media-wrapper media-gallery[data-desktop-layout="thumbnail_slider"],
+  .product__media-wrapper media-gallery[data-desktop-layout="thumbnails"] {
+    display: grid !important;
+    grid-template-columns: 78px minmax(0, 1fr) !important;
+    column-gap: 14px !important;
+    align-items: start !important;
+    width: 100% !important;
+  }
+
+
+  /* =====================================================
+     THUMBNAIL CONTAINER
+     ===================================================== */
+
+  .product__media-wrapper .thumbnail-slider {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+
+    width: 78px !important;
+
+    /* JS will automatically set this */
+    height: var(--zaalgallery-height, 400px) !important;
+
+    max-height: var(--zaalgallery-height, 400px) !important;
+
+    overflow: hidden !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    position: relative !important;
+
+    align-self: start !important;
+  }
+
+
+  /* =====================================================
+     THUMBNAIL LIST = VERTICAL SCROLL
+     ===================================================== */
+
+  .product__media-wrapper .thumbnail-slider .thumbnail-list {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    flex-wrap: nowrap !important;
+
+    gap: 8px !important;
+
+    width: 78px !important;
+
+    height: 100% !important;
+
+    max-height: 100% !important;
+
+    overflow-y: auto !important;
+
+    overflow-x: hidden !important;
+
+    scroll-behavior: smooth !important;
+
+    padding: 2px 3px !important;
+
+    margin: 0 !important;
+
+    scrollbar-width: thin !important;
+
+    overscroll-behavior: contain !important;
+  }
+
+
+  /* =====================================================
+     EACH THUMBNAIL
+     ===================================================== */
+
+  .product__media-wrapper .thumbnail-slider
+  .thumbnail-list__item {
+    flex: 0 0 62px !important;
+
+    width: 62px !important;
+
+    min-width: 62px !important;
+
+    max-width: 62px !important;
+
+    height: 62px !important;
+
+    margin: 0 !important;
+  }
+
+
+  .product__media-wrapper .thumbnail-slider
+  .thumbnail {
+    width: 62px !important;
+
+    height: 62px !important;
+
+    min-height: 62px !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    display: block !important;
+
+    overflow: hidden !important;
+
+    border-radius: 6px !important;
+
+    cursor: pointer !important;
+  }
+
+
+  .product__media-wrapper .thumbnail-slider
+  .thumbnail img {
+    width: 100% !important;
+
+    height: 100% !important;
+
+    object-fit: cover !important;
+
+    display: block !important;
+  }
+
+
+  /* =====================================================
+     THUMBNAIL ARROWS
+     ===================================================== */
+
+  .product__media-wrapper .thumbnail-slider
+  > .slider-button {
+    position: absolute !important;
+
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
+    z-index: 10 !important;
+
+    width: 26px !important;
+
+    height: 26px !important;
+
+    min-width: 26px !important;
+
+    min-height: 26px !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    border-radius: 50% !important;
+
+    background: #fff !important;
+
+    border: 1px solid rgba(0,0,0,.15) !important;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.12) !important;
+  }
+
+
+  .product__media-wrapper .thumbnail-slider
+  > .slider-button--prev {
+    top: 2px !important;
+
+    bottom: auto !important;
+  }
+
+
+  .product__media-wrapper .thumbnail-slider
+  > .slider-button--next {
+    bottom: 2px !important;
+
+    top: auto !important;
+  }
+
+
+  /* =====================================================
+     MAIN IMAGE AREA
+     ===================================================== */
+
+  .product__media-wrapper media-gallery
+  > slider-component:not(.thumbnail-slider) {
+    grid-column: 2 !important;
+
+    grid-row: 1 !important;
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    margin: 0 !important;
+  }
+
+
+  .product__media-wrapper
+  .product__media-list {
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    overflow: hidden !important;
+  }
+
+
+  .product__media-wrapper
+  .product__media-item {
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    margin: 0 !important;
+  }
+
+
+  /* Hide inactive images */
+  .product__media-wrapper
+  .product__media-item:not(.is-active) {
+    display: none !important;
+  }
+
+
+  /* Hide main gallery arrows */
+  .product__media-wrapper
+  > media-gallery
+  > slider-component:not(.thumbnail-slider)
+  .slider-buttons {
+    display: none !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   Keep Dawn's normal mobile gallery
+   ========================================================= */
+
+@media screen and (max-width: 749px) {
+
+  .product__media-wrapper media-gallery {
+    display: block !important;
+  }
+
+}
