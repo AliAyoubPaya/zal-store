@@ -3983,3 +3983,27 @@ height:58px;
   }
 
 }
+
+@media screen and (min-width: 750px) {
+
+  .product__media-wrapper .thumbnail-slider {
+    height: var(--zaalgallery-height) !important;
+    max-height: var(--zaalgallery-height) !important;
+    overflow: hidden !important;
+  }
+
+  .product__media-wrapper .thumbnail-slider .thumbnail-list {
+    height: 100% !important;
+    max-height: 100% !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+
+    gap: 8px !important;
+  }
+
+}
