@@ -39,72 +39,8 @@
 
 
       <div class="cart__blocks">
-        {%- assign has_other_products = false -%}
 
-                {%- for item in cart.items -%}
-                  {%- unless item.product.tags contains 'Marble Falls Mustangs' 
-                        or item.product.tags contains 'Donation Marble False' -%}
-                    {%- assign has_other_products = true -%}
-                    {%- break -%}
-                  {%- endunless -%}
-                {%- endfor -%}
 
-                {%- if has_other_products -%}
-                  <div class="decorate-question" style="margin: 1.5rem 0;">
-                    <p><strong>Want to be decorated?</strong></p>
-
-                    <label style="margin-right:1rem;">
-                      <input type="radio" name="decorate_choice" value="Yes">
-                      Yes
-                    </label>
-
-                    <label>
-                      <input type="radio" name="decorate_choice" value="No">
-                      No
-                    </label>
-
-                    <p id="decorate-error" style="display:none;color:red;margin-top:.5rem;">
-                      Please select Yes or No before proceeding to checkout.
-                    </p>
-                  </div>
-                  <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                      const checkoutBtn = document.getElementById('checkout');
-                      const radios = document.querySelectorAll('input[name="decorate_choice"]');
-                      const error = document.getElementById('decorate-error');
-
-                      function isSelected() {
-                        return Array.from(radios).some(r => r.checked);
-                      }
-
-                      // Save selection to cart attribute
-                      radios.forEach(radio => {
-                        radio.addEventListener('change', async function () {
-                          error.style.display = 'none';
-
-                          await fetch('/cart/update.js', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                              note: `Want to be decorated?: ${this.value}`
-                            })
-                          });
-                        });
-                      });
-
-                      // Block checkout if not selected
-                      if (checkoutBtn) {
-                        checkoutBtn.addEventListener('click', function (e) {
-                          if (!isSelected()) {
-                            e.preventDefault();
-                            error.style.display = 'block';
-                            error.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                          }
-                        });
-                      }
-                    });
-                  </script>
-                {%- endif -%}
         {% for block in section.blocks %}
           {%- case block.type -%}
             {%- when '@app' -%}
